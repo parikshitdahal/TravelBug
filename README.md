@@ -1,33 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a Next.js 15 travel agency site with destination pages, package pages, and three inquiry flows:
+
+- package booking
+- contact form
+- custom package requests
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies and run the development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.example` to `.env.local` and fill in your SMTP credentials:
 
-## Learn More
+```bash
+cp .env.example .env.local
+```
 
-To learn more about Next.js, take a look at the following resources:
+Required:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `SMTP_HOST`
+- `SMTP_PORT`
+- `SMTP_USER`
+- `SMTP_PASS`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Optional:
+
+- `MAIL_TO`
+- `SITE_NAME`
+
+All form submissions send email through the SMTP configuration in [mail.ts](/Users/parikshitdahal/travel-agency/src/app/lib/mail.ts).
+
+## Build
+
+```bash
+npm run build
+```
+
+## Launch
+
+Use the checklist in [LAUNCH_CHECKLIST.md](/Users/parikshitdahal/travel-agency/LAUNCH_CHECKLIST.md) before deploying to production.
 
 ## Deploy on Vercel
 

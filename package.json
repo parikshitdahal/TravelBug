@@ -9,19 +9,36 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.6",
+    "@radix-ui/react-popover": "^1.1.14",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.10",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "formidable": "^3.5.4",
+    "framer-motion": "^12.23.6",
+    "iframe": "^1.0.0",
+    "lucide-react": "^0.503.0",
+    "next": "15.3.1",
+    "nodemailer": "^6.10.1",
     "react": "^19.0.0",
+    "react-datepicker": "^8.4.0",
+    "react-day-picker": "^9.8.0",
     "react-dom": "^19.0.0",
-    "next": "15.3.1"
+    "tailwind-variants": "^1.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "@types/formidable": "^3.4.5",
+    "@types/node": "^20",
+    "@types/nodemailer": "^6.4.17",
+    "@types/react": "^19",
+    "@types/react-datepicker": "^7.0.0",
+    "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.1",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
