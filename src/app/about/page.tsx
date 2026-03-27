@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { HeartHandshake, Leaf, Mountain } from 'lucide-react';
 
 export default function AboutPage() {
   return (
@@ -46,7 +47,7 @@ export default function AboutPage() {
           className="relative"
         >
           <Image
-            src="/about/brand-story.jpg"
+            src="/hero2.jpeg"
             alt="Brand story image"
             width={600}
             height={400}
@@ -80,17 +81,17 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                icon: '/about/icons/community.png',
+                Icon: HeartHandshake,
                 title: 'Community First',
                 text: 'We collaborate with local communities at every step, ensuring they benefit directly from tourism while keeping their heritage alive.'
               },
               {
-                icon: '/about/icons/nature.png',
+                Icon: Leaf,
                 title: 'Sustainable Travel',
                 text: 'We champion eco-friendly practices to protect Sikkim’s pristine landscapes, minimizing our footprint while maximizing positive impact.'
               },
               {
-                icon: '/about/icons/authentic.png',
+                Icon: Mountain,
                 title: 'Authentic Experiences',
                 text: 'Every journey is designed to immerse you in Sikkim’s culture, cuisine, and traditions, going beyond typical tourist trails.'
               }
@@ -103,13 +104,7 @@ export default function AboutPage() {
                 transition={{ delay: 0.1 * i }}
                 className="bg-[#F6FAF4] rounded-lg shadow-lg p-6 text-center hover:scale-105 transition-transform duration-300"
               >
-                <Image
-                  src={value.icon}
-                  alt={value.title}
-                  width={60}
-                  height={60}
-                  className="mx-auto mb-4"
-                />
+                <value.Icon className="mx-auto mb-4 h-[60px] w-[60px] text-[#1E3D2F]" />
                 <h3 className="text-lg font-semibold text-[#1E3D2F] mb-2">{value.title}</h3>
                 <p className="text-gray-700 text-sm leading-relaxed">{value.text}</p>
               </motion.div>
@@ -134,7 +129,7 @@ export default function AboutPage() {
             Every detail reflects our mission to offer premium, trustworthy, and transparent travel experiences.
           </p>
           <Image
-            src="/about/brand-identity.png"
+            src="/logo.svg"
             alt="Brand identity"
             width={300}
             height={100}

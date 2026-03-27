@@ -6,15 +6,15 @@ import { motion } from 'framer-motion';
 
 const destinations = [
   { name: 'Gangtok', img: '/destinations/gangtok.jpg' },
-  { name: 'North Sikkim', img: '/destinations/north-.jpg' },
-  { name: 'South Sikkim', img: '/destinations/south-sikkim.jpg' },
-  { name: 'West Sikkim', img: '/destinations/west-sikkim.jpg' },
-  { name: 'East Sikkim', img: '/destinations/east-sikkim.jpg' },
-  { name: 'Pelling', img: '/destinations/pelling.jpg' },
-  { name: 'Lachung', img: '/destinations/lachung.jpg' },
-  { name: 'Yumthang Valley', img: '/destinations/yumthang.jpg' },
-  { name: 'Rabong', img: '/destinations/rabong.jpg' },
-  { name: 'Nathula Pass', img: '/destinations/nathula.jpg' },
+  { name: 'North Sikkim', img: '/destinations/north-hero.jpg' },
+  { name: 'South Sikkim', img: '/destinations/south.jpeg' },
+  { name: 'West Sikkim', img: '/destinations/west.jpg' },
+  { name: 'East Sikkim', img: '/destinations/east.jpg' },
+  { name: 'Pelling', img: '/destinations/west2.jpg' },
+  { name: 'Lachung', img: '/destinations/lachung.jpeg' },
+  { name: 'Yumthang Valley', img: '/destinations/north-hero.jpg' },
+  { name: 'Rabong', img: '/destinations/namchi.jpg' },
+  { name: 'Nathula Pass', img: '/destinations/tasngo.jpg' },
 ];
 
 export default function CustomPackagePage() {
