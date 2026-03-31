@@ -155,3 +155,4 @@ export default function BookingForm({ packageTitle, packageDuration = '' }: Book
     </form>
   );
 }
+

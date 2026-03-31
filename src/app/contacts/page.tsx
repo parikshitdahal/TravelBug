@@ -35,16 +35,16 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-[#E6ECE1] min-h-screen pt-24 px-6">
-      <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-8">
-        <h1 className="text-3xl font-bold text-[#1E3D2F] mb-6">Contact Us</h1>
+    <div className="bg-[#E6ECE1] min-h-screen pt-24 px-4 sm:px-6 pb-12">
+      <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-5 sm:p-8">
+        <h1 className="text-2xl sm:text-3xl font-bold text-[#1E3D2F] mb-6">Contact Us</h1>
         <form onSubmit={onSubmit} className="space-y-4">
-          <input className="w-full border rounded-lg p-3" name="name" placeholder="Your Name" value={form.name} onChange={onChange} required />
-          <input className="w-full border rounded-lg p-3" name="email" type="email" placeholder="Email" value={form.email} onChange={onChange} required />
-          <input className="w-full border rounded-lg p-3" name="phone" placeholder="Phone (optional)" value={form.phone} onChange={onChange} />
-          <input className="w-full border rounded-lg p-3" name="subject" placeholder="Subject" value={form.subject} onChange={onChange} />
-          <textarea className="w-full border rounded-lg p-3" name="message" rows={5} placeholder="Your message" value={form.message} onChange={onChange} required />
-          <button disabled={status==='loading'} className="bg-[#1E3D2F] text-white px-6 py-3 rounded-lg font-semibold">
+          <input className="w-full border border-gray-300 rounded-lg p-3 text-gray-800 placeholder-gray-500" name="name" placeholder="Your Name" value={form.name} onChange={onChange} required />
+          <input className="w-full border border-gray-300 rounded-lg p-3 text-gray-800 placeholder-gray-500" name="email" type="email" placeholder="Email" value={form.email} onChange={onChange} required />
+          <input className="w-full border border-gray-300 rounded-lg p-3 text-gray-800 placeholder-gray-500" name="phone" placeholder="Phone (optional)" value={form.phone} onChange={onChange} />
+          <input className="w-full border border-gray-300 rounded-lg p-3 text-gray-800 placeholder-gray-500" name="subject" placeholder="Subject" value={form.subject} onChange={onChange} />
+          <textarea className="w-full border border-gray-300 rounded-lg p-3 text-gray-800 placeholder-gray-500" name="message" rows={5} placeholder="Your message" value={form.message} onChange={onChange} required />
+          <button disabled={status==='loading'} className="w-full sm:w-auto bg-[#1E3D2F] text-white px-6 py-3 rounded-lg font-semibold">
             {status==='loading' ? 'Sending...' : 'Send Message'}
           </button>
           {status==='success' && <p className="text-green-600">Message sent!</p>}

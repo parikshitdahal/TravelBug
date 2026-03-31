@@ -68,12 +68,12 @@ export default function CustomPackagePage() {
   };
 
   return (
-    <div className="bg-[#f5fdf6] min-h-screen pt-24 px-6 md:px-20 pb-16">
+    <div className="bg-[#f5fdf6] min-h-screen pt-24 px-4 sm:px-6 md:px-20 pb-16">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8 md:p-12"
+        className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-5 sm:p-8 md:p-12"
       >
         <h1 className="text-3xl md:text-4xl font-bold text-[#1E3D2F] mb-8 text-center">
           Customize Your Sikkim Journey
@@ -114,7 +114,7 @@ export default function CustomPackagePage() {
                 name="days"
                 value={form.days}
                 onChange={onChange}
-                className="w-full border rounded-lg p-3"
+                className="w-full border border-gray-300 rounded-lg p-3 text-gray-800 placeholder-gray-500"
                 placeholder="e.g. 5"
                 required
               />
@@ -125,7 +125,7 @@ export default function CustomPackagePage() {
                 name="stayType"
                 value={form.stayType}
                 onChange={onChange}
-                className="w-full border rounded-lg p-3"
+                className="w-full border border-gray-300 rounded-lg p-3 text-gray-800"
               >
                 <option value="">No preference</option>
                 <option value="Budget">Budget</option>
@@ -143,7 +143,7 @@ export default function CustomPackagePage() {
               name="message"
               value={form.message}
               onChange={onChange}
-              className="w-full border rounded-lg p-3"
+              className="w-full border border-gray-300 rounded-lg p-3 text-gray-800 placeholder-gray-500"
               rows={4}
               placeholder="Tell us more about your preferences..."
             />
@@ -151,9 +151,9 @@ export default function CustomPackagePage() {
 
           {/* Contact */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <input name="name" value={form.name} onChange={onChange} type="text" placeholder="Your Name" className="border rounded-lg p-3" required />
-            <input name="email" value={form.email} onChange={onChange} type="email" placeholder="Email Address" className="border rounded-lg p-3" required />
-            <input name="phone" value={form.phone} onChange={onChange} type="text" placeholder="Phone Number (optional)" className="border rounded-lg p-3 sm:col-span-2" />
+            <input name="name" value={form.name} onChange={onChange} type="text" placeholder="Your Name" className="border border-gray-300 rounded-lg p-3 text-gray-800 placeholder-gray-500" required />
+            <input name="email" value={form.email} onChange={onChange} type="email" placeholder="Email Address" className="border border-gray-300 rounded-lg p-3 text-gray-800 placeholder-gray-500" required />
+            <input name="phone" value={form.phone} onChange={onChange} type="text" placeholder="Phone Number (optional)" className="border border-gray-300 rounded-lg p-3 text-gray-800 placeholder-gray-500 sm:col-span-2" />
           </div>
 
           <button
