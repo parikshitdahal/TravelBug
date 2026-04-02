@@ -10,8 +10,8 @@ export default function Footer() {
         {/* Logo & Intro */}
         <div className="flex flex-col items-start">
           <div className="flex items-center space-x-2 mb-3">
-            <Image src="/logo.svg" alt="Misty Miles Logo" width={40} height={40} className="rounded-full" />
-            <span className="text-2xl font-bold text-white">Misty Miles</span>
+            <Image src="/logo.svg" alt="TravelBug Sikkim Logo" width={40} height={40} className="rounded-full" />
+            <span className="text-2xl font-bold text-white">TravelBug Sikkim</span>
           </div>
           <p className="text-sm text-gray-200">
             Your trusted partner in discovering the magical land of Sikkim. Book guided tours and unique experiences with us.
@@ -37,7 +37,7 @@ export default function Footer() {
               <Phone size={16} className="mt-1" /> <span>+91 9832122812</span>
             </li>
             <li className="flex items-start gap-2">
-              <Mail size={16} className="mt-1" /> <span>bagaichafarmsandventures.com</span>
+              <Mail size={16} className="mt-1" /> <span>TravelBug Sikkim</span>
             </li>
             <li>
               📍 Gangtok, Sikkim
@@ -61,7 +61,7 @@ export default function Footer() {
 
       {/* Copyright */}
       <div className="text-center text-xs text-gray-400 mt-10">
-        © {new Date().getFullYear()} Misty Miles. All rights reserved.
+        © {new Date().getFullYear()} TravelBug Sikkim. All rights reserved.
       </div>
     </footer>
   )

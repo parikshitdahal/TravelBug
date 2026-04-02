@@ -23,14 +23,14 @@ export default function Navbar() {
         <Link href="/" className="flex items-center space-x-3">
           <Image
             src="/logo.svg"
-            alt="Misty Miles Logo"
+            alt="TravelBug Sikkim Logo"
             width={40}
             height={40}
             className="rounded-full object-cover"
             style={{height:'auto'}}
           />
-          <span className="text-2xl font-extrabold text-[#1E3D2F] tracking-tight hover:opacity-90 transition duration-200">
-            Bagaicha Farms and Ventures 
+          <span className="text-lg sm:text-2xl font-extrabold text-[#1E3D2F] tracking-tight hover:opacity-90 transition duration-200">
+            TravelBug Sikkim
           </span>
         </Link>
 

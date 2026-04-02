@@ -32,7 +32,7 @@ export default function AboutPage() {
             Our Story, Values & Identity
           </h1>
           <p className="text-lg leading-relaxed">
-            At <span className="font-semibold">Bagaicha Retreat</span>, we design journeys that are immersive, meaningful, and leave a positive impact on the people and places we touch.
+            At <span className="font-semibold">TravelBug Sikkim</span>, we design journeys that are immersive, meaningful, and leave a positive impact on the people and places we touch.
           </p>
         </motion.div>
       </section>
@@ -64,7 +64,7 @@ export default function AboutPage() {
         >
           <h2 className="text-2xl font-bold text-[#1E3D2F] mb-4">Our Brand Story</h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            Born in the heart of Sikkim, Bagaicha Retreat began as a passion project by explorers who believed that travel should go beyond sightseeing. We envisioned journeys that celebrate culture, preserve the environment, and build meaningful connections.
+            Born in the heart of Sikkim, TravelBug Sikkim began as a passion project by explorers who believed that travel should go beyond sightseeing. We envisioned journeys that celebrate culture, preserve the environment, and build meaningful connections.
           </p>
           <p className="text-gray-700 leading-relaxed">
             Over the years, we’ve grown into a community-driven travel brand that curates authentic experiences for discerning travelers. Every itinerary we create is guided by our love for nature, respect for local traditions, and a desire to craft memories that last a lifetime.
