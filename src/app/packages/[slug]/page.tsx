@@ -53,7 +53,7 @@ const PackageDetails = () => {
           <div className="absolute inset-0 bg-blue bg-opacity-50 flex flex-col justify-center items-center text-white text-center px-4">
             <h1 className="text-3xl sm:text-5xl font-bold mb-4">{pkg.title}</h1>
             <div className="bg-white text-black px-6 py-2 rounded-lg font-medium text-lg shadow">
-              {pkg.price} – {pkg.duration}
+              {pkg.duration}
             </div>
           </div>
         </div>

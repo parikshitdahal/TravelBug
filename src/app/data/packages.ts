@@ -12,7 +12,6 @@ export interface Package {
   slug: string
   description: string
   duration: string
-  price: string
   media: { type: 'image' | 'video'; src: string }[]
   overview: string
   pickup: string
@@ -29,7 +28,6 @@ export const packages: Package[] = [
     slug: 'north-sikkim-tour',
     description: 'Explore Gurudongmar Lake, Yumthang Valley, and Lachung.',
     duration: '5 Days / 4 Nights',
-    price: '₹15,999',
     media: [
       { type: 'image', src: '/packages/north.jpg' },
       { type: 'video', src: '/packages/north.mp4' },
@@ -84,7 +82,6 @@ export const packages: Package[] = [
     slug: 'south-sikkim-retreat',
     description: 'Visit monasteries, tea gardens, and Namchi town.',
     duration: '3 Days / 2 Nights',
-    price: '₹9,499',
     media: [
       { type: 'image', src: '/packages/south.jpg' },
       { type: 'video', src: '/packages/south.mp4' },
@@ -126,7 +123,6 @@ export const packages: Package[] = [
     slug: 'west-sikkim-trail',
     description: 'Trek through Geyzing and explore Pelling & Khecheopalri.',
     duration: '4 Days / 3 Nights',
-    price: '₹12,299',
     media: [
       { type: 'image', src: '/packages/west.jpg' },
       { type: 'video', src: '/packages/west.mp4' },

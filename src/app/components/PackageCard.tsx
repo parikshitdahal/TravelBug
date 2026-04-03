@@ -30,15 +30,23 @@ export default function PackageCard({ pkg }: { pkg: Package }) {
         <p className="text-sm text-gray-600 mt-1">{pkg.description}</p>
 
         <div className="mt-3 text-sm text-gray-500">
-          📅 {pkg.duration} | 💰 {pkg.price}
+          📅 {pkg.duration}
         </div>
 
-        <Link
-          href={`/packages/${pkg.slug}`}
-          className="mt-4 inline-block text-[#3B5F4D] hover:text-[#1E3D2F] font-medium"
-        >
-          View Details →
-        </Link>
+        <div className="mt-4 flex items-center gap-4">
+          <Link
+            href={`/packages/${pkg.slug}`}
+            className="inline-block text-[#3B5F4D] hover:text-[#1E3D2F] font-medium"
+          >
+            View Details →
+          </Link>
+          <Link
+            href="/contacts"
+            className="inline-block rounded-full bg-[#1E3D2F] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#163026]"
+          >
+            Enquire Now
+          </Link>
+        </div>
       </div>
     </div>
   )

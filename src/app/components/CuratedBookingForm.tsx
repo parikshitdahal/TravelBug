@@ -5,10 +5,9 @@ import { useState } from 'react';
 export interface CuratedBookingFormProps {
   packageTitle: string;   // e.g., pkg.title
   duration: string;       // e.g., pkg.duration ("3 Nights 4 Days")
-  price?: string;         // optional e.g., pkg.price
 }
 
-export default function CuratedBookingForm({ packageTitle, duration, price }: CuratedBookingFormProps) {
+export default function CuratedBookingForm({ packageTitle, duration }: CuratedBookingFormProps) {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [status, setStatus] = useState<'idle'|'loading'|'success'|'error'>('idle');
   const [error, setError] = useState('');
@@ -27,7 +26,7 @@ export default function CuratedBookingForm({ packageTitle, duration, price }: Cu
       const res = await fetch('/api/book-curated', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, packageTitle, duration, price }),
+        body: JSON.stringify({ ...form, packageTitle, duration }),
       });
 
       const data = await res.json().catch(() => ({}));
@@ -56,11 +55,6 @@ export default function CuratedBookingForm({ packageTitle, duration, price }: Cu
         <p className="text-sm text-gray-700">
           <span className="font-semibold text-[#1E3D2F]">Duration:</span> {duration}
         </p>
-        {price ? (
-          <p className="text-sm text-gray-700">
-            <span className="font-semibold text-[#1E3D2F]">Price:</span> {price}
-          </p>
-        ) : null}
       </div>
 
       {/* Name */}
