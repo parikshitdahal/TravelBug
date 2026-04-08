@@ -46,20 +46,20 @@ export default function CuratedBookingForm({ packageTitle, duration }: CuratedBo
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 bg-white shadow-lg rounded-xl p-6">
+    <form onSubmit={handleSubmit} className="card-shell space-y-6 rounded-[1.6rem] p-6">
       {/* Package context */}
-      <div className="rounded-lg bg-[#F6FAF4] border border-[#E2E8E4] p-4">
+      <div className="bg-surface-soft rounded-[1.1rem] border border-[var(--border)] p-4">
         <p className="text-sm text-gray-700">
-          <span className="font-semibold text-[#1E3D2F]">Package:</span> {packageTitle}
+          <span className="font-semibold text-primary">Package:</span> {packageTitle}
         </p>
         <p className="text-sm text-gray-700">
-          <span className="font-semibold text-[#1E3D2F]">Duration:</span> {duration}
+          <span className="font-semibold text-primary">Duration:</span> {duration}
         </p>
       </div>
 
       {/* Name */}
       <div>
-        <label className="block mb-2 font-bold text-[#1E3D2F]">Your Name</label>
+        <label className="block mb-2 font-bold text-primary">Your Name</label>
         <input
           name="name"
           value={form.name}
@@ -67,14 +67,13 @@ export default function CuratedBookingForm({ packageTitle, duration }: CuratedBo
           type="text"
           placeholder="Enter your full name"
           required
-          className="w-full border border-gray-300 rounded-lg p-3 bg-gray-50 text-gray-800 font-medium
-                     placeholder-gray-500 focus:bg-white focus:border-[#1E3D2F] focus:ring-2 focus:ring-[#3B5F4D] outline-none"
+          className="input-brand w-full p-3 text-gray-800 font-medium placeholder-gray-500 outline-none"
         />
       </div>
 
       {/* Email */}
       <div>
-        <label className="block mb-2 font-bold text-[#1E3D2F]">Email</label>
+        <label className="block mb-2 font-bold text-primary">Email</label>
         <input
           name="email"
           value={form.email}
@@ -82,47 +81,44 @@ export default function CuratedBookingForm({ packageTitle, duration }: CuratedBo
           type="email"
           placeholder="you@example.com"
           required
-          className="w-full border border-gray-300 rounded-lg p-3 bg-gray-50 text-gray-800 font-medium
-                     placeholder-gray-500 focus:bg-white focus:border-[#1E3D2F] focus:ring-2 focus:ring-[#3B5F4D] outline-none"
+          className="input-brand w-full p-3 text-gray-800 font-medium placeholder-gray-500 outline-none"
         />
       </div>
 
       {/* Phone */}
       <div>
-        <label className="block mb-2 font-bold text-[#1E3D2F]">Phone (optional)</label>
+        <label className="block mb-2 font-bold text-primary">Phone (optional)</label>
         <input
           name="phone"
           value={form.phone}
           onChange={handleChange}
           type="text"
           placeholder="+91-XXXXXXXXXX"
-          className="w-full border border-gray-300 rounded-lg p-3 bg-gray-50 text-gray-800 font-medium
-                     placeholder-gray-500 focus:bg-white focus:border-[#1E3D2F] focus:ring-2 focus:ring-[#3B5F4D] outline-none"
+          className="input-brand w-full p-3 text-gray-800 font-medium placeholder-gray-500 outline-none"
         />
       </div>
 
       {/* Message */}
       <div>
-        <label className="block mb-2 font-bold text-[#1E3D2F]">Additional Message (optional)</label>
+        <label className="block mb-2 font-bold text-primary">Additional Message (optional)</label>
         <textarea
           name="message"
           value={form.message}
           onChange={handleChange}
           rows={4}
           placeholder="Any specific requests or questions?"
-          className="w-full border border-gray-300 rounded-lg p-3 bg-gray-50 text-gray-800 font-medium
-                     placeholder-gray-500 focus:bg-white focus:border-[#1E3D2F] focus:ring-2 focus:ring-[#3B5F4D] outline-none"
+          className="input-brand w-full p-3 text-gray-800 font-medium placeholder-gray-500 outline-none"
         />
       </div>
 
       {/* Status messages */}
       {status === 'success' && (
-        <div className="rounded-lg bg-green-50 border border-green-200 text-green-700 p-3 text-sm">
+        <div className="rounded-xl bg-green-50 border border-green-200 text-green-700 p-3 text-sm">
           Request sent! We’ll contact you shortly.
         </div>
       )}
       {status === 'error' && (
-        <div className="rounded-lg bg-red-50 border border-red-200 text-red-700 p-3 text-sm">
+        <div className="rounded-xl bg-red-50 border border-red-200 text-red-700 p-3 text-sm">
           {error}
         </div>
       )}
@@ -131,7 +127,7 @@ export default function CuratedBookingForm({ packageTitle, duration }: CuratedBo
       <button
         type="submit"
         disabled={status === 'loading'}
-        className={`w-full bg-[#1E3D2F] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#163026] transition
+        className={`btn-brand w-full rounded-xl px-6 py-3 font-semibold transition
                    ${status === 'loading' ? 'opacity-60 cursor-not-allowed' : ''}`}
       >
         {status === 'loading' ? 'Sending…' : 'Book This Trip'}

@@ -8,10 +8,13 @@ interface BookingFormProps {
 }
 
 export default function BookingForm({ packageTitle, packageDuration = '' }: BookingFormProps) {
+  const today = new Date().toISOString().split('T')[0];
   const [form, setForm] = useState({
     name: '',
     email: '',
     phone: '',
+    startDate: '',
+    endDate: '',
     stayType: '',
     message: '',
   });
@@ -43,7 +46,15 @@ export default function BookingForm({ packageTitle, packageDuration = '' }: Book
       const json = await res.json();
       if (res.ok && json.success) {
         setStatus('success');
-        setForm({ name: '', email: '', phone: '', stayType: '', message: '' });
+        setForm({
+          name: '',
+          email: '',
+          phone: '',
+          startDate: '',
+          endDate: '',
+          stayType: '',
+          message: '',
+        });
       } else {
         setStatus('error');
         setError(json.error || 'Failed to send booking');
@@ -56,11 +67,11 @@ export default function BookingForm({ packageTitle, packageDuration = '' }: Book
   };
 
   return (
-    <form onSubmit={onSubmit} className="space-y-6 bg-white shadow-lg rounded-xl p-6">
+    <form onSubmit={onSubmit} className="card-shell space-y-6 rounded-[1.6rem] p-6">
       {/* Package context */}
-      <div className="rounded-lg bg-[#F6FAF4] border p-4">
+      <div className="bg-surface-soft rounded-[1.1rem] border border-[var(--border)] p-4">
         <p className="text-sm text-gray-700">
-          <span className="font-semibold text-[#1E3D2F]">Package:</span> {packageTitle}
+          <span className="font-semibold text-primary">Package:</span> {packageTitle}
           {packageDuration && (
             <> &middot; <span className="font-semibold">{packageDuration}</span></>
           )}
@@ -69,10 +80,9 @@ export default function BookingForm({ packageTitle, packageDuration = '' }: Book
 
       {/* Name */}
       <div>
-        <label className="block mb-2 font-bold text-[#1E3D2F]">Your Name</label>
+        <label className="block mb-2 font-bold text-primary">Your Name</label>
         <input
-          className="w-full border border-gray-300 rounded-lg p-3 text-gray-800 font-medium 
-                     bg-gray-50 focus:bg-white focus:border-[#1E3D2F] focus:ring-2 focus:ring-[#3B5F4D]"
+          className="input-brand w-full p-3 text-gray-800 font-medium"
           name="name"
           placeholder="Enter your full name"
           value={form.name}
@@ -83,11 +93,10 @@ export default function BookingForm({ packageTitle, packageDuration = '' }: Book
 
       {/* Email */}
       <div>
-        <label className="block mb-2 font-bold text-[#1E3D2F]">Email</label>
+        <label className="block mb-2 font-bold text-primary">Email</label>
         <input
           type="email"
-          className="w-full border border-gray-300 rounded-lg p-3 text-gray-800 font-medium 
-                     bg-gray-50 focus:bg-white focus:border-[#1E3D2F] focus:ring-2 focus:ring-[#3B5F4D]"
+          className="input-brand w-full p-3 text-gray-800 font-medium"
           name="email"
           placeholder="you@example.com"
           value={form.email}
@@ -98,10 +107,9 @@ export default function BookingForm({ packageTitle, packageDuration = '' }: Book
 
       {/* Phone */}
       <div>
-        <label className="block mb-2 font-bold text-[#1E3D2F]">Phone (optional)</label>
+        <label className="block mb-2 font-bold text-primary">Phone (optional)</label>
         <input
-          className="w-full border border-gray-300 rounded-lg p-3 text-gray-800 font-medium 
-                     bg-gray-50 focus:bg-white focus:border-[#1E3D2F] focus:ring-2 focus:ring-[#3B5F4D]"
+          className="input-brand w-full p-3 text-gray-800 font-medium"
           name="phone"
           placeholder="+91-XXXXXXXXXX"
           value={form.phone}
@@ -109,15 +117,39 @@ export default function BookingForm({ packageTitle, packageDuration = '' }: Book
         />
       </div>
 
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label className="block mb-2 font-bold text-primary">Travel Start Date</label>
+          <input
+            type="date"
+            name="startDate"
+            min={today}
+            value={form.startDate}
+            onChange={onChange}
+            className="input-brand w-full p-3 text-gray-800 font-medium"
+          />
+        </div>
+        <div>
+          <label className="block mb-2 font-bold text-primary">Travel End Date</label>
+          <input
+            type="date"
+            name="endDate"
+            min={form.startDate || today}
+            value={form.endDate}
+            onChange={onChange}
+            className="input-brand w-full p-3 text-gray-800 font-medium"
+          />
+        </div>
+      </div>
+
       {/* Stay Type */}
       <div>
-        <label className="block mb-2 font-bold text-[#1E3D2F]">Stay Type</label>
+        <label className="block mb-2 font-bold text-primary">Stay Type</label>
         <select
           name="stayType"
           value={form.stayType}
           onChange={onChange}
-          className="w-full border border-gray-300 rounded-lg p-3 bg-gray-50 text-gray-800 font-medium
-                     focus:bg-white focus:border-[#1E3D2F] focus:ring-2 focus:ring-[#3B5F4D]"
+          className="input-brand w-full p-3 text-gray-800 font-medium"
         >
           <option value="">Select your preference</option>
           <option value="Budget">Budget</option>
@@ -129,10 +161,9 @@ export default function BookingForm({ packageTitle, packageDuration = '' }: Book
 
       {/* Message */}
       <div>
-        <label className="block mb-2 font-bold text-[#1E3D2F]">Additional Message (optional)</label>
+        <label className="block mb-2 font-bold text-primary">Additional Message (optional)</label>
         <textarea
-          className="w-full border border-gray-300 rounded-lg p-3 text-gray-800 font-medium 
-                     bg-gray-50 focus:bg-white focus:border-[#1E3D2F] focus:ring-2 focus:ring-[#3B5F4D]"
+          className="input-brand w-full p-3 text-gray-800 font-medium"
           name="message"
           rows={4}
           placeholder="Any specific requests or questions?"
@@ -144,15 +175,14 @@ export default function BookingForm({ packageTitle, packageDuration = '' }: Book
       {/* Submit */}
       <button
         disabled={status === 'loading'}
-        className="w-full bg-[#1E3D2F] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#163026] transition"
+        className="btn-brand w-full rounded-lg px-6 py-3 font-semibold transition"
       >
         {status === 'loading' ? 'Sending…' : 'Book This Trip'}
       </button>
 
       {/* Status messages */}
-      {status === 'success' && <p className="text-green-600 text-center">Booking request sent!</p>}
-      {status === 'error' && <p className="text-red-600 text-center">{error}</p>}
+      {status === 'success' && <p className="rounded-xl bg-emerald-50 px-4 py-3 text-center text-emerald-700">Booking request sent!</p>}
+      {status === 'error' && <p className="rounded-xl bg-red-50 px-4 py-3 text-center text-red-600">{error}</p>}
     </form>
   );
 }
-

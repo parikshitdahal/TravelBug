@@ -3,46 +3,50 @@ import Link from 'next/link'
 import { Package } from '@/app/data/packages'
 
 export default function PackageCard({ pkg }: { pkg: Package }) {
+  const heroVideo = pkg.media.find(item => item.type === 'video')
+  const heroImage = pkg.media.find(item => item.type === 'image')
+
   return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition transform hover:scale-105">
-      {pkg.media[0]?.type === 'image' ? (
-        <Image
-          src={pkg.media[0].src}
-          alt={pkg.title}
-          width={800}
-          height={400}
-          className="h-48 w-full object-cover"
-          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-        />
-      ) : (
+    <div className="card-shell overflow-hidden rounded-[1.4rem] transition transform hover:scale-[1.02]">
+      {heroVideo ? (
         <video
-          src={pkg.media[0].src}
+          src={heroVideo.src}
           autoPlay
           loop
           muted
           playsInline
           className="h-48 w-full object-cover"
         />
-      )}
+      ) : heroImage ? (
+        <Image
+          src={heroImage.src}
+          alt={pkg.title}
+          width={800}
+          height={400}
+          quality={95}
+          className="h-48 w-full object-cover"
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+        />
+      ) : null}
 
-      <div className="p-4">
-        <h3 className="text-xl font-semibold text-[#1E3D2F]">{pkg.title}</h3>
-        <p className="text-sm text-gray-600 mt-1">{pkg.description}</p>
+      <div className="p-5">
+        <h3 className="text-xl font-semibold text-primary">{pkg.title}</h3>
+        <p className="mt-1 text-sm leading-6 text-gray-600">{pkg.description}</p>
 
-        <div className="mt-3 text-sm text-gray-500">
+        <div className="mt-3 text-sm font-medium text-[var(--muted)]">
           📅 {pkg.duration}
         </div>
 
-        <div className="mt-4 flex items-center gap-4">
+        <div className="mt-5 flex flex-wrap items-center gap-3">
           <Link
             href={`/packages/${pkg.slug}`}
-            className="inline-block text-[#3B5F4D] hover:text-[#1E3D2F] font-medium"
+            className="link-brand inline-block font-medium"
           >
             View Details →
           </Link>
           <Link
             href="/contacts"
-            className="inline-block rounded-full bg-[#1E3D2F] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#163026]"
+            className="btn-brand inline-block rounded-full px-4 py-2 text-sm font-semibold transition"
           >
             Enquire Now
           </Link>

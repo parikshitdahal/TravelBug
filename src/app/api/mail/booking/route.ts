@@ -9,6 +9,8 @@ export async function POST(req: Request) {
       phone = '',
       packageTitle,
       packageDuration = '',
+      startDate = '',
+      endDate = '',
       stayType = '',          // ← NEW
       message = '',
     } = await req.json();
@@ -27,6 +29,8 @@ export async function POST(req: Request) {
       ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
       <p><strong>Package:</strong> ${packageTitle}</p>
       ${packageDuration ? `<p><strong>Duration:</strong> ${packageDuration}</p>` : ''}
+      ${startDate ? `<p><strong>Start Date:</strong> ${startDate}</p>` : ''}
+      ${endDate ? `<p><strong>End Date:</strong> ${endDate}</p>` : ''}
       ${stayType ? `<p><strong>Stay Type:</strong> ${stayType}</p>` : ''}
       ${message ? `<p><strong>Message:</strong><br/>${message}</p>` : ''}
     `;
@@ -35,7 +39,7 @@ export async function POST(req: Request) {
 Name: ${name}
 Email: ${email}
 ${phone ? `Phone: ${phone}\n` : ''}Package: ${packageTitle}
-${packageDuration ? `Duration: ${packageDuration}\n` : ''}${stayType ? `Stay Type: ${stayType}\n` : ''}${message ? `Message: ${message}\n` : ''}
+${packageDuration ? `Duration: ${packageDuration}\n` : ''}${startDate ? `Start Date: ${startDate}\n` : ''}${endDate ? `End Date: ${endDate}\n` : ''}${stayType ? `Stay Type: ${stayType}\n` : ''}${message ? `Message: ${message}\n` : ''}
 `;
 
     await sendMail({

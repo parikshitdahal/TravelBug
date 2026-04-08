@@ -8,6 +8,8 @@ export async function POST(req: Request) {
       email,
       phone = '',
       days,
+      startDate = '',
+      endDate = '',
       destinations = [],
       stayType = '',
       message = '',
@@ -23,6 +25,8 @@ export async function POST(req: Request) {
       <p><strong>Email:</strong> ${email}</p>
       ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
       <p><strong>Days:</strong> ${days}</p>
+      ${startDate ? `<p><strong>Start Date:</strong> ${startDate}</p>` : ''}
+      ${endDate ? `<p><strong>End Date:</strong> ${endDate}</p>` : ''}
       <p><strong>Destinations:</strong> ${destinations.join(', ')}</p>
       ${stayType ? `<p><strong>Stay Type:</strong> ${stayType}</p>` : ''}
       ${message ? `<p><strong>Message:</strong><br/>${message}</p>` : ''}
@@ -31,6 +35,7 @@ export async function POST(req: Request) {
 Name: ${name}
 Email: ${email}
 ${phone ? `Phone: ${phone}\n` : ''}Days: ${days}
+${startDate ? `Start Date: ${startDate}\n` : ''}${endDate ? `End Date: ${endDate}\n` : ''}
 Destinations: ${destinations.join(', ')}
 ${stayType ? `Stay Type: ${stayType}\n` : ''}${message ? `Message: ${message}\n` : ''}
 `;

@@ -6,13 +6,13 @@ const districts = [
   {
     name: "North Sikkim",
     slug: "north",
-    image: "/destinations/north.jpg",
+    image: "/destinations/gtk.jpg",
     tagline: "Land of Snowy Lakes & Mountains",
   },
   {
     name: "South Sikkim",
     slug: "south",
-    image: "/destinations/south.jpeg",
+    image: "/destinations/temi.jpg",
     tagline: "Serenity in Monasteries & Gardens",
   },
   {
@@ -31,18 +31,27 @@ const districts = [
 
 export default function DestinationPage() {
   return (
-    <div className="container mx-auto px-4 py-10">
-      <h1 className="text-4xl font-bold text-center text-primary mb-10">Explore Sikkim by Region</h1>
+    <div className="bg-page min-h-screen">
+      <div className="container mx-auto px-4 pt-28 pb-10 sm:pt-32">
+      <div className="mb-10 text-center">
+        <p className="eyebrow mb-3">Region Guide</p>
+        <h1 className="section-title text-3xl sm:text-4xl">Explore Sikkim by Region</h1>
+        <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[var(--muted)] sm:text-base">
+          Browse the state district by district to see which mood suits your trip best, from alpine drives to tea gardens and monastery towns.
+        </p>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         {districts.map((district) => (
           <Link key={district.slug} href={`/destinations/${district.slug}`}>
-            <div className="relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer transition-transform hover:scale-105">
+            <div className="card-shell group relative overflow-hidden rounded-[1.6rem] transition-transform hover:scale-[1.02]">
               <Image
                 src={district.image}
                 alt={district.name}
-                width={600}
+                width={1200}
                 height={400}
+                quality={95}
                 className="object-cover w-full h-64 group-hover:brightness-75 transition duration-300"
+                sizes="(min-width: 640px) 50vw, 100vw"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-transparent to-transparent px-4 py-6">
                 <h2 className="text-white text-2xl font-bold">{district.name}</h2>
@@ -55,11 +64,12 @@ export default function DestinationPage() {
       {/* CTA Button */}
         <div className="text-center mt-12">
           <Link href="/custom-package">
-            <button className="bg-[#1E3D2F] text-white px-6 py-3 rounded-xl text-lg font-semibold shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-105">
+            <button className="btn-brand rounded-xl px-6 py-3 text-lg font-semibold transition-transform duration-300 hover:scale-105 hover:shadow-xl">
               Start Booking / Customize This Trip
             </button>
           </Link>
         </div>
+      </div>
     </div>
-  );
+  )
 }

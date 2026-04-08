@@ -48,6 +48,7 @@ function DestinationCard({
             alt={name}
             width={800}
             height={400}
+            quality={95}
             className="w-full h-full object-cover"
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           />
@@ -84,10 +85,10 @@ export default function DistrictPage() {
   const allTags = Array.from(new Set(district.destinations.flatMap(dest => dest.tags)))
 
   return (
-    <div className="bg-[#F8F9F5] min-h-screen pb-16">
+    <div className="bg-page min-h-screen pb-16">
       <div className="container mx-auto p-6 space-y-12">
         {/* Hero Media */}
-        <div className="rounded-xl overflow-hidden shadow-lg">
+        <div className="overflow-hidden rounded-[1.8rem] shadow-[0_24px_70px_rgba(15,34,52,0.18)]">
           {district.featuredMedia.type === 'video' ? (
             <video
               src={district.featuredMedia.src}
@@ -103,13 +104,15 @@ export default function DistrictPage() {
               alt={district.district}
               width={1600}
               height={800}
+              quality={95}
               sizes="100vw"
             />
           )}
         </div>
 
         {/* District Intro */}
-        <div className="bg-white rounded-xl shadow p-6">
+        <div className="card-shell rounded-[1.6rem] p-6">
+          <p className="eyebrow mb-3">{district.district} district</p>
           <h1 className="text-3xl font-bold capitalize text-primary mb-4">
             {district.district} Sikkim
           </h1>
@@ -122,7 +125,7 @@ export default function DistrictPage() {
             onClick={() => setActiveTag(null)}
             className={`px-4 py-1 rounded-full text-sm font-medium border transition ${
               activeTag === null
-                ? 'bg-[#3B5F4D] text-white'
+                ? 'bg-brand-dark border-[var(--accent)] text-white'
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             }`}
           >
@@ -134,7 +137,7 @@ export default function DistrictPage() {
               onClick={() => setActiveTag(tag)}
               className={`px-4 py-1 rounded-full text-sm font-medium border transition ${
                 activeTag === tag
-                  ? 'bg-[#3B5F4D] text-white'
+                  ? 'bg-brand-dark border-[var(--accent)] text-white'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}
             >
@@ -160,7 +163,7 @@ export default function DistrictPage() {
         {/* CTA Button */}
         <div className="text-center">
           <Link href="/custom-package">
-            <button className="bg-[#1E3D2F] text-white px-6 py-3 rounded-xl text-lg font-semibold shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-105">
+            <button className="btn-brand rounded-xl px-6 py-3 text-lg font-semibold transition-transform duration-300 hover:scale-105 hover:shadow-xl">
               Start Booking / Customize This Trip
             </button>
           </Link>

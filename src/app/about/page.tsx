@@ -6,7 +6,7 @@ import { HeartHandshake, Leaf, Mountain } from 'lucide-react';
 
 export default function AboutPage() {
   return (
-    <div className="bg-[#F6FAF4] min-h-screen pt-24 pb-16">
+    <div className="bg-page min-h-screen pt-24 pb-16">
       {/* HERO WITH VIDEO BACKGROUND */}
       <section className="relative h-[70vh] md:h-[80vh] flex items-center justify-center overflow-hidden mb-20">
         {/* Background video */}
@@ -20,7 +20,7 @@ export default function AboutPage() {
           <source src="/about/heroo.mp4" type="video/mp4" />
         </video>
         {/* Overlay */}
-        <div className="absolute inset-0 bg-[rgba(30,61,47,0.5)] backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-[rgba(8,19,29,0.58)] backdrop-blur-sm" />
         {/* Content */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -38,7 +38,7 @@ export default function AboutPage() {
       </section>
 
       {/* BRAND STORY */}
-      <section className="max-w-6xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 mb-20">
+      <section className="mx-auto mb-20 grid max-w-6xl gap-12 px-6 md:grid-cols-2 md:px-12">
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -46,13 +46,15 @@ export default function AboutPage() {
           transition={{ duration: 0.6 }}
           className="relative"
         >
-          <Image
-            src="/hero2.jpeg"
-            alt="Brand story image"
-            width={600}
-            height={400}
-            className="rounded-xl shadow-2xl object-cover"
-          />
+          <div className="card-shell overflow-hidden rounded-[1.8rem] p-3">
+            <Image
+              src="/hero2.jpeg"
+              alt="Brand story image"
+              width={600}
+              height={400}
+              className="rounded-[1.2rem] shadow-2xl object-cover"
+            />
+          </div>
         </motion.div>
 
         <motion.div
@@ -62,7 +64,8 @@ export default function AboutPage() {
           transition={{ duration: 0.6 }}
           className="flex flex-col justify-center"
         >
-          <h2 className="text-2xl font-bold text-[#1E3D2F] mb-4">Our Brand Story</h2>
+          <p className="eyebrow mb-3">Why We Exist</p>
+          <h2 className="text-2xl font-bold text-primary mb-4">Our Brand Story</h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
             Born in the heart of Sikkim, TravelBug Sikkim began as a passion project by explorers who believed that travel should go beyond sightseeing. We envisioned journeys that celebrate culture, preserve the environment, and build meaningful connections.
           </p>
@@ -73,9 +76,10 @@ export default function AboutPage() {
       </section>
 
       {/* VALUES */}
-      <section className="bg-white py-16 mb-20">
+      <section className="bg-surface py-16 mb-20">
         <div className="max-w-6xl mx-auto px-6 md:px-12">
-          <h2 className="text-2xl font-bold text-center text-[#1E3D2F] mb-12">
+          <p className="eyebrow mb-3 text-center">What Guides Us</p>
+          <h2 className="text-2xl font-bold text-center text-primary mb-12">
             Our Core Values
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -102,10 +106,10 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 * i }}
-                className="bg-[#F6FAF4] rounded-lg shadow-lg p-6 text-center hover:scale-105 transition-transform duration-300"
+                className="bg-surface-soft rounded-lg border border-[var(--border)] shadow-lg p-6 text-center transition-transform duration-300 hover:scale-105"
               >
-                <value.Icon className="mx-auto mb-4 h-[60px] w-[60px] text-[#1E3D2F]" />
-                <h3 className="text-lg font-semibold text-[#1E3D2F] mb-2">{value.title}</h3>
+                <value.Icon className="mx-auto mb-4 h-[60px] w-[60px] text-[var(--accent-deep)]" />
+                <h3 className="text-lg font-semibold text-primary mb-2">{value.title}</h3>
                 <p className="text-gray-700 text-sm leading-relaxed">{value.text}</p>
               </motion.div>
             ))}
@@ -122,7 +126,8 @@ export default function AboutPage() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <h2 className="text-2xl font-bold text-[#1E3D2F] mb-6">Our Brand Identity</h2>
+          <p className="eyebrow mb-3">Visual Language</p>
+          <h2 className="text-2xl font-bold text-primary mb-6">Our Brand Identity</h2>
           <p className="text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8">
             Our visual identity is inspired by the lush valleys and majestic mountains of Sikkim. 
             Earthy greens and natural tones symbolize growth and harmony with nature, while our logo embodies a spirit of exploration and balance. 
@@ -139,13 +144,13 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#1E3D2F] py-16 text-center">
+      <section className="bg-brand-dark py-16 text-center">
         <h2 className="text-2xl md:text-3xl font-semibold text-white mb-6">
           Ready to Experience the Journey of a Lifetime?
         </h2>
         <a
           href="/custom-package"
-          className="bg-white text-[#1E3D2F] px-6 py-3 rounded-full font-semibold hover:bg-[#F6FAF4] transition"
+          className="btn-brand inline-block rounded-full px-6 py-3 font-semibold transition"
         >
           Build Your Custom Trip
         </a>

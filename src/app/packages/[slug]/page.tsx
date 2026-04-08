@@ -25,11 +25,11 @@ const PackageDetails = () => {
   const gallery = packageGalleries[slug || ''] || []
 
   return (
-    <div className="bg-[#E6ECE1] min-h-screen py-20 px-4 sm:px-6">
+    <div className="bg-page min-h-screen py-20 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto space-y-12">
 
         {/* Hero Section */}
-        <div className="relative overflow-hidden rounded-2xl shadow-2xl h-[400px] sm:h-[500px]">
+        <div className="relative h-[420px] overflow-hidden rounded-[2rem] shadow-[0_26px_80px_rgba(15,34,52,0.18)] sm:h-[520px]">
           {heroVideo ? (
             <video
               src={heroVideo.src}
@@ -45,40 +45,44 @@ const PackageDetails = () => {
               alt={pkg.title}
               width={1600}
               height={1000}
+              quality={95}
               className="w-full h-full object-cover"
               sizes="100vw"
             />
           ) : null}
 
-          <div className="absolute inset-0 bg-blue bg-opacity-50 flex flex-col justify-center items-center text-white text-center px-4">
-            <h1 className="text-3xl sm:text-5xl font-bold mb-4">{pkg.title}</h1>
-            <div className="bg-white text-black px-6 py-2 rounded-lg font-medium text-lg shadow">
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-[linear-gradient(180deg,rgba(8,19,29,0.22),rgba(8,19,29,0.72))] px-4 text-center text-white">
+            <p className="eyebrow mb-3 text-[var(--accent)]">Curated Route</p>
+            <h1 className="mb-4 text-3xl font-black leading-tight sm:text-5xl">{pkg.title}</h1>
+            <div className="rounded-full bg-white/92 px-6 py-2 text-lg font-medium text-[var(--primary)] shadow">
               {pkg.duration}
             </div>
           </div>
         </div>
 
         {/* Overview Section */}
-        <div className="grid md:grid-cols-2 gap-8 bg-white p-6 rounded-xl shadow-md">
+        <div className="card-shell grid gap-8 rounded-[1.6rem] p-6 md:grid-cols-[1.3fr_0.9fr]">
           <div>
-            <h2 className="text-2xl font-bold text-[#1E3D2F] mb-4">Trip Overview</h2>
+            <h2 className="text-2xl font-bold text-primary mb-4">Trip Overview</h2>
             <p className="text-gray-800 leading-relaxed whitespace-pre-line">{pkg.overview}</p>
           </div>
-          <div className="space-y-2 text-gray-700 text-sm">
-            <div>📍 <strong>Pickup Location:</strong> {pkg.pickup}</div>
-            <div>🕒 <strong>Duration:</strong> {pkg.duration}</div>
-            <div>📅 <strong>Best Season:</strong> {pkg.bestSeason}</div>
-            <div>👨‍👩‍👧‍👦 <strong>Suitable For:</strong> {pkg.suitableFor}</div>
-            <div>✅ <strong>Includes:</strong> {pkg.includes.join(', ')}</div>
+          <div className="rounded-[1.3rem] bg-surface-soft p-5 text-sm text-gray-700">
+            <div className="space-y-3">
+              <div>📍 <strong>Pickup Location:</strong> {pkg.pickup}</div>
+              <div>🕒 <strong>Duration:</strong> {pkg.duration}</div>
+              <div>📅 <strong>Best Season:</strong> {pkg.bestSeason}</div>
+              <div>👨‍👩‍👧‍👦 <strong>Suitable For:</strong> {pkg.suitableFor}</div>
+              <div>✅ <strong>Includes:</strong> {pkg.includes.join(', ')}</div>
+            </div>
           </div>
         </div>
 
         {/* Itinerary Section */}
-        <div className="bg-white rounded-xl shadow-md p-6 space-y-6">
-          <h2 className="text-2xl font-bold text-[#1E3D2F]">Day-wise Itinerary</h2>
+        <div className="card-shell rounded-[1.6rem] p-6 space-y-6">
+          <h2 className="text-2xl font-bold text-primary">Day-wise Itinerary</h2>
           {pkg.itinerary.map((item, index) => (
-            <div key={index} className="border-l-4 border-[#3B5F4D] pl-4">
-              <h3 className="font-semibold text-lg text-[#1E3D2F]">
+            <div key={index} className="border-l-4 border-[var(--accent-deep)] pl-4">
+              <h3 className="font-semibold text-lg text-primary">
                 {item.day} – {item.title}
               </h3>
               <p className="text-gray-700">{item.description}</p>
@@ -87,19 +91,25 @@ const PackageDetails = () => {
         </div>
         
         {/* Booking Form */}
-<div className="mt-8 max-w-2xl mx-auto">
-  <h2 className="text-2xl font-bold text-[#1E3D2F] mb-4">Book This Trip</h2>
-  <BookingForm packageTitle={pkg.title} packageDuration={pkg.duration} />
-</div>
+        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+          <div className="space-y-4">
+            <p className="eyebrow">Trip Enquiry</p>
+            <h2 className="section-title text-3xl">Book This Trip</h2>
+            <p className="max-w-xl text-sm leading-6 text-[var(--muted)] sm:text-base">
+              Choose your preferred dates and stay style, then send the enquiry. We’ll get back with availability, transport flow, and the best-fit plan for your trip.
+            </p>
+          </div>
+          <BookingForm packageTitle={pkg.title} packageDuration={pkg.duration} />
+        </div>
 
 
         {/* Gallery Section */}
         {gallery.length > 0 && (
           <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-[#1E3D2F]">Gallery</h2>
+            <h2 className="text-2xl font-bold text-primary">Gallery</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {gallery.map((item, index) => (
-                <div key={index} className="relative group overflow-hidden rounded-xl shadow-lg">
+                <div key={index} className="relative overflow-hidden rounded-[1.3rem] border border-[var(--border)] shadow-lg">
                   {item.type === 'video' ? (
                     <video
                       src={item.src}
@@ -112,6 +122,7 @@ const PackageDetails = () => {
                       alt={`${pkg.title} - Media ${index + 1}`}
                       width={1200}
                       height={800}
+                      quality={95}
                       className="w-full rounded-xl object-cover"
                       sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     />
@@ -123,14 +134,13 @@ const PackageDetails = () => {
         )}
 
         {/* Action Buttons */}
-        <div className="text-center space-y-6">
-          <Link href="/custom-package">
-            <button className="bg-[#1E3D2F] text-white px-6 py-3 rounded-xl text-lg font-semibold shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-105">
-              Start Booking / Customize This Trip
-            </button>
+        <div className="flex flex-col items-center justify-center gap-4 text-center sm:flex-row">
+          <Link href="/custom-package" className="btn-brand rounded-xl px-6 py-3 text-lg font-semibold transition-transform duration-300 hover:scale-105">
+            Customize This Trip
           </Link>
-
-          
+          <Link href="/contacts" className="btn-secondary rounded-xl px-6 py-3 text-lg font-semibold transition">
+            Talk To Us First
+          </Link>
         </div>
 
       </div>
