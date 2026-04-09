@@ -163,4 +163,77 @@ export const packages: Package[] = [
       },
     ],
   },
+
+  {
+    id: '4',
+    title: 'Complete Sikkim Tour',
+    slug: 'complete-sikkim-tour',
+    description: 'A full-circle Sikkim journey covering Gangtok, North Sikkim, Changu Lake, Namchi, Ravangla, and Pelling.',
+    duration: '8 Days / 7 Nights',
+    media: [
+      { type: 'image', src: '/destinations/gtk.jpg' },
+      { type: 'video', src: '/destinations/tsomgo.mp4' },
+    ],
+    overview: `This itinerary is designed for travelers who want to experience the best of Sikkim in one seamless route. From the alpine beauty of Gurudongmar and Yumthang to the cultural depth of Namchi, Ravangla, and Pelling, the journey blends scenic drives, iconic landmarks, mountain towns, and local experiences into one complete trip.`,
+    pickup: 'Pickup from NJP / Bagdogra',
+    bestSeason: 'March to June, October to December',
+    suitableFor: 'Families, couples, first-time visitors, and explorers looking for a full Sikkim circuit',
+    includes: [
+      'Private or shared transport as per plan',
+      'Hotel accommodation',
+      'Breakfast and dinner',
+      'Permits for North Sikkim and Tsomgo sector',
+      'Local travel assistance',
+    ],
+    itinerary: [
+      {
+        day: 'Day 1',
+        title: 'Welcome to Sikkim',
+        description:
+          'Arrive at NJP or Bagdogra and transfer to Gangtok. Check in, relax, and spend the evening at leisure around MG Marg if time permits.',
+      },
+      {
+        day: 'Day 2',
+        title: 'Excursion to Changu Lake and Baba Mandir',
+        description:
+          'Enjoy a day trip to the high-altitude Tsomgo (Changu) Lake and Baba Harbhajan Singh Mandir. Return to Gangtok for an overnight stay.',
+      },
+      {
+        day: 'Day 3',
+        title: 'Gangtok to Lachen',
+        description:
+          'Drive through scenic mountain roads via Chungthang toward Lachen. Stop at waterfalls and viewpoints en route before checking in for the night.',
+      },
+      {
+        day: 'Day 4',
+        title: 'Lachen to Lachung via Gurudongmar Lake',
+        description:
+          'Start early for Gurudongmar Lake, one of the highest lakes in the world. After the visit, return through Lachen and continue onward to Lachung for an overnight stay.',
+      },
+      {
+        day: 'Day 5',
+        title: 'Lachung to Gangtok via Yumthang Valley',
+        description:
+          'Visit the flower-filled landscapes of Yumthang Valley in the morning, then drive back to Gangtok with scenic stops along the way.',
+      },
+      {
+        day: 'Day 6',
+        title: 'Gangtok to Pelling via Temi Tea Estate, Namchi, & Ravongla',
+        description:
+          'Travel toward West Sikkim, covering Temi Tea Estate, Namchi, and Ravongla en route. Continue to Pelling and settle in for the evening.',
+      },
+      {
+        day: 'Day 7',
+        title: 'Pelling Sightseeing',
+        description:
+          'Explore the highlights of Pelling including monasteries, viewpoints, and heritage sites such as the Skywalk, Rabdentse Ruins, and nearby attractions based on time and interest.',
+      },
+      {
+        day: 'Day 8',
+        title: 'Drop to NJP/Bagdogra',
+        description:
+          'After breakfast, check out and drive back to NJP Railway Station or Bagdogra Airport for departure.',
+      },
+    ],
+  },
 ];

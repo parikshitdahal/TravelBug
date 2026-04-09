@@ -17,4 +17,10 @@ export const packageGalleries: Record<string, { type: 'image' | 'video'; src: st
     { type: 'image', src: '/gallery/west3.jpg' },
     { type: 'video', src: '/gallery/west4.mp4' },
   ],
+  'complete-sikkim-tour': [
+    { type: 'image', src: '/destinations/gtk.jpg' },
+    { type: 'image', src: '/destinations/temi.jpg' },
+    { type: 'image', src: '/destinations/west.jpg' },
+    { type: 'video', src: '/destinations/tsomgo.mp4' },
+  ],
 }
