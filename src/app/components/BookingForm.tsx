@@ -69,22 +69,22 @@ export default function BookingForm({ packageTitle, packageDuration = '' }: Book
   return (
     <form onSubmit={onSubmit} className="card-shell space-y-6 rounded-[1.6rem] p-6">
       {/* Package context */}
-      <div className="bg-surface-soft rounded-[1.1rem] border border-[var(--border)] p-4">
-        <p className="text-sm text-gray-700">
-          <span className="font-semibold text-primary">Package:</span> {packageTitle}
+      <div className="rounded-[1.2rem] border border-[rgba(17,24,39,0.08)] bg-[var(--surface-soft)] p-4">
+        <p className="text-sm text-[var(--muted)]">
+          <span className="font-semibold text-[var(--text-dark)]">Package:</span> {packageTitle}
           {packageDuration && (
-            <> &middot; <span className="font-semibold">{packageDuration}</span></>
+            <> &middot; <span className="font-semibold text-[var(--accent)]">{packageDuration}</span></>
           )}
         </p>
       </div>
 
       {/* Name */}
       <div>
-        <label className="block mb-2 font-bold text-primary">Your Name</label>
+        <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">Your Name</label>
         <input
-          className="input-brand w-full p-3 text-gray-800 font-medium"
+          className="input-brand w-full p-3 font-medium"
           name="name"
-          placeholder="Enter your full name"
+          placeholder="Full name"
           value={form.name}
           onChange={onChange}
           required
@@ -93,10 +93,10 @@ export default function BookingForm({ packageTitle, packageDuration = '' }: Book
 
       {/* Email */}
       <div>
-        <label className="block mb-2 font-bold text-primary">Email</label>
+        <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">Email</label>
         <input
           type="email"
-          className="input-brand w-full p-3 text-gray-800 font-medium"
+          className="input-brand w-full p-3 font-medium"
           name="email"
           placeholder="you@example.com"
           value={form.email}
@@ -107,11 +107,11 @@ export default function BookingForm({ packageTitle, packageDuration = '' }: Book
 
       {/* Phone */}
       <div>
-        <label className="block mb-2 font-bold text-primary">Phone (optional)</label>
+        <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">Phone (optional)</label>
         <input
-          className="input-brand w-full p-3 text-gray-800 font-medium"
+          className="input-brand w-full p-3 font-medium"
           name="phone"
-          placeholder="+91-XXXXXXXXXX"
+          placeholder="Phone number (optional)"
           value={form.phone}
           onChange={onChange}
         />
@@ -119,37 +119,37 @@ export default function BookingForm({ packageTitle, packageDuration = '' }: Book
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="block mb-2 font-bold text-primary">Travel Start Date</label>
+          <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">Travel Start Date</label>
           <input
             type="date"
             name="startDate"
             min={today}
             value={form.startDate}
             onChange={onChange}
-            className="input-brand w-full p-3 text-gray-800 font-medium"
+            className="input-brand w-full p-3 font-medium"
           />
         </div>
         <div>
-          <label className="block mb-2 font-bold text-primary">Travel End Date</label>
+          <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">Travel End Date</label>
           <input
             type="date"
             name="endDate"
             min={form.startDate || today}
             value={form.endDate}
             onChange={onChange}
-            className="input-brand w-full p-3 text-gray-800 font-medium"
+            className="input-brand w-full p-3 font-medium"
           />
         </div>
       </div>
 
       {/* Stay Type */}
       <div>
-        <label className="block mb-2 font-bold text-primary">Stay Type</label>
+        <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">Preferred Stay Style</label>
         <select
           name="stayType"
           value={form.stayType}
           onChange={onChange}
-          className="input-brand w-full p-3 text-gray-800 font-medium"
+          className="input-brand w-full p-3 font-medium"
         >
           <option value="">Select your preference</option>
           <option value="Budget">Budget</option>
@@ -161,12 +161,12 @@ export default function BookingForm({ packageTitle, packageDuration = '' }: Book
 
       {/* Message */}
       <div>
-        <label className="block mb-2 font-bold text-primary">Additional Message (optional)</label>
+        <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">Additional Notes (optional)</label>
         <textarea
-          className="input-brand w-full p-3 text-gray-800 font-medium"
+          className="input-brand w-full p-3 font-medium"
           name="message"
           rows={4}
-          placeholder="Any specific requests or questions?"
+          placeholder="Share any special requests, comfort preferences, or questions you would like us to consider"
           value={form.message}
           onChange={onChange}
         />
@@ -175,14 +175,14 @@ export default function BookingForm({ packageTitle, packageDuration = '' }: Book
       {/* Submit */}
       <button
         disabled={status === 'loading'}
-        className="btn-brand w-full rounded-lg px-6 py-3 font-semibold transition"
+        className="btn-brand w-full rounded-full px-6 py-3 font-semibold transition"
       >
-        {status === 'loading' ? 'Sending…' : 'Book This Trip'}
+        {status === 'loading' ? 'Sending…' : 'Send Booking Enquiry'}
       </button>
 
       {/* Status messages */}
-      {status === 'success' && <p className="rounded-xl bg-emerald-50 px-4 py-3 text-center text-emerald-700">Booking request sent!</p>}
-      {status === 'error' && <p className="rounded-xl bg-red-50 px-4 py-3 text-center text-red-600">{error}</p>}
+      {status === 'success' && <p className="rounded-xl border border-[rgba(34,197,94,0.28)] bg-[rgba(34,197,94,0.1)] px-4 py-3 text-center text-[var(--success)]">Your booking enquiry has been sent successfully.</p>}
+      {status === 'error' && <p className="rounded-xl border border-[rgba(255,77,109,0.24)] bg-[rgba(255,77,109,0.1)] px-4 py-3 text-center text-[var(--pink)]">{error}</p>}
     </form>
   );
 }

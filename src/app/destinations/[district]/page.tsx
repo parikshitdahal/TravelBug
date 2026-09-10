@@ -32,40 +32,54 @@ function DestinationCard({
   const activeMedia = media[mediaIndex]
 
   return (
-    <div className="bg-white rounded-xl shadow hover:shadow-xl transition overflow-hidden">
-      <div className="h-52">
+    <div className="immersive-card group">
+      <div className="relative h-[360px]">
         {activeMedia.type === 'video' ? (
           <video
             src={activeMedia.src}
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
             autoPlay
             loop
             muted
+            playsInline
           />
         ) : (
           <Image
             src={activeMedia.src}
             alt={name}
             width={800}
-            height={400}
+            height={1000}
             quality={95}
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           />
         )}
-      </div>
-      <div className="p-4 space-y-2">
-        <h2 className="text-xl font-semibold text-primary">{name}</h2>
-        <p className="text-gray-600">{description}</p>
-        <div className="flex flex-wrap gap-2 mt-2">
-          {tags.map((tag, index) => (
-            <span
-              key={index}
-              className="bg-accent text-sm px-2 py-1 rounded-full text-white"
-            >
-              {tag}
+        <div className="absolute inset-0 immersive-overlay" />
+
+        <div className="absolute inset-0 flex flex-col justify-between p-5 text-white">
+          <div className="flex items-start justify-between gap-3">
+            <span className="rounded-full bg-white/88 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--text-dark)]">
+              Highlight
             </span>
-          ))}
+            {media.length > 1 ? (
+              <span className="tag-chip">Gallery View</span>
+            ) : null}
+          </div>
+
+          <div className="space-y-4">
+            <div>
+              <h2 className="text-2xl font-semibold leading-tight">{name}</h2>
+              <p className="mt-3 text-sm leading-6 text-slate-200">{description}</p>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              {tags.map((tag, index) => (
+                <span key={index} className="tag-chip">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -86,7 +100,7 @@ export default function DistrictPage() {
 
   return (
     <div className="bg-page min-h-screen pb-16">
-      <div className="container mx-auto p-6 space-y-12">
+      <div className="section-shell page-stack pt-28 pb-4">
         {/* Hero Media */}
         <div className="overflow-hidden rounded-[1.8rem] shadow-[0_24px_70px_rgba(15,34,52,0.18)]">
           {district.featuredMedia.type === 'video' ? (
@@ -95,12 +109,13 @@ export default function DistrictPage() {
               autoPlay
               loop
               muted
-              className="w-full h-[400px] object-cover"
+              playsInline
+              className="h-[380px] w-full object-cover sm:h-[430px]"
             />
           ) : (
             <Image
               src={district.featuredMedia.src}
-              className="w-full h-[400px] object-cover"
+              className="h-[380px] w-full object-cover sm:h-[430px]"
               alt={district.district}
               width={1600}
               height={800}
@@ -111,22 +126,22 @@ export default function DistrictPage() {
         </div>
 
         {/* District Intro */}
-        <div className="card-shell rounded-[1.6rem] p-6">
-          <p className="eyebrow mb-3">{district.district} district</p>
-          <h1 className="text-3xl font-bold capitalize text-primary mb-4">
-            {district.district} Sikkim
+        <div className="card-shell rounded-[1.8rem] p-7 sm:p-8">
+          <p className="eyebrow mb-3">regional guide</p>
+          <h1 className="section-title mb-4 text-3xl sm:text-4xl">
+            {district.name}
           </h1>
-          <p className="text-lg text-gray-700">{district.intro}</p>
+          <p className="max-w-3xl text-sm leading-7 text-[var(--muted)] sm:text-lg sm:leading-8">{district.intro}</p>
         </div>
 
         {/* Filter Chips */}
         <div className="flex flex-wrap gap-3">
           <button
             onClick={() => setActiveTag(null)}
-            className={`px-4 py-1 rounded-full text-sm font-medium border transition ${
+            className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
               activeTag === null
-                ? 'bg-brand-dark border-[var(--accent)] text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                ? 'bg-brand-dark border-[var(--accent)] text-white shadow-[0_10px_24px_rgba(15,34,52,0.18)]'
+                : 'bg-white/72 text-[var(--muted)] hover:bg-white'
             }`}
           >
             All
@@ -135,10 +150,10 @@ export default function DistrictPage() {
             <button
               key={tag}
               onClick={() => setActiveTag(tag)}
-              className={`px-4 py-1 rounded-full text-sm font-medium border transition ${
+              className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
                 activeTag === tag
-                  ? 'bg-brand-dark border-[var(--accent)] text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-brand-dark border-[var(--accent)] text-white shadow-[0_10px_24px_rgba(15,34,52,0.18)]'
+                  : 'bg-white/72 text-[var(--muted)] hover:bg-white'
               }`}
             >
               {tag}
@@ -147,7 +162,7 @@ export default function DistrictPage() {
         </div>
 
         {/* Destination Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {district.destinations
             .filter(dest => !activeTag || dest.tags.includes(activeTag))
             .map((dest, index) => (
@@ -160,13 +175,22 @@ export default function DistrictPage() {
               />
             ))}
         </div>
+
         {/* CTA Button */}
-        <div className="text-center">
-          <Link href="/custom-package">
-            <button className="btn-brand rounded-xl px-6 py-3 text-lg font-semibold transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-              Start Booking / Customize This Trip
-            </button>
-          </Link>
+        <div className="card-shell rounded-[1.8rem] p-7 text-center sm:p-9">
+          <p className="eyebrow mb-3">Shape Your Route</p>
+          <h2 className="section-title text-2xl sm:text-3xl">Want this district as part of a bigger journey?</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[var(--muted)] sm:text-base">
+            We can combine this region with Gangtok, Pelling, Darjeeling, Kalimpong, or North Sikkim and build a smoother route around your travel dates.
+          </p>
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link href="/custom-package" className="btn-brand rounded-full px-6 py-3 text-sm font-semibold transition sm:text-base">
+              Customize This Trip
+            </Link>
+            <Link href="/contacts" className="btn-secondary rounded-full px-6 py-3 text-sm font-semibold transition sm:text-base">
+              Talk To Us
+            </Link>
+          </div>
         </div>
       </div>
     </div>

@@ -26,7 +26,7 @@ const PackageDetails = () => {
 
   return (
     <div className="bg-page min-h-screen py-20 px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto space-y-12">
+      <div className="max-w-6xl mx-auto page-stack">
 
         {/* Hero Section */}
         <div className="relative h-[420px] overflow-hidden rounded-[2rem] shadow-[0_26px_80px_rgba(15,34,52,0.18)] sm:h-[520px]">
@@ -54,7 +54,7 @@ const PackageDetails = () => {
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-[linear-gradient(180deg,rgba(8,19,29,0.22),rgba(8,19,29,0.72))] px-4 text-center text-white">
             <p className="eyebrow mb-3 text-[var(--accent)]">Curated Route</p>
             <h1 className="mb-4 text-3xl font-black leading-tight sm:text-5xl">{pkg.title}</h1>
-            <div className="rounded-full bg-white/92 px-6 py-2 text-lg font-medium text-[var(--primary)] shadow">
+            <div className="rounded-full border border-white/10 bg-white/10 px-6 py-2 text-lg font-medium text-white shadow backdrop-blur-sm">
               {pkg.duration}
             </div>
           </div>
@@ -64,9 +64,9 @@ const PackageDetails = () => {
         <div className="card-shell grid gap-8 rounded-[1.6rem] p-6 md:grid-cols-[1.3fr_0.9fr]">
           <div>
             <h2 className="text-2xl font-bold text-primary mb-4">Trip Overview</h2>
-            <p className="text-gray-800 leading-relaxed whitespace-pre-line">{pkg.overview}</p>
+            <p className="whitespace-pre-line text-[15px] leading-7 text-[var(--muted)]">{pkg.overview}</p>
           </div>
-          <div className="rounded-[1.3rem] bg-surface-soft p-5 text-sm text-gray-700">
+          <div className="rounded-[1.4rem] border border-[rgba(17,24,39,0.08)] bg-[linear-gradient(180deg,rgba(94,224,255,0.08),rgba(255,255,255,0.72))] p-5 text-sm text-[var(--muted)]">
             <div className="space-y-3">
               <div>📍 <strong>Pickup Location:</strong> {pkg.pickup}</div>
               <div>🕒 <strong>Duration:</strong> {pkg.duration}</div>
@@ -80,14 +80,19 @@ const PackageDetails = () => {
         {/* Itinerary Section */}
         <div className="card-shell rounded-[1.6rem] p-6 space-y-6">
           <h2 className="text-2xl font-bold text-primary">Day-wise Itinerary</h2>
+          <div className="grid gap-4">
           {pkg.itinerary.map((item, index) => (
-            <div key={index} className="border-l-4 border-[var(--accent-deep)] pl-4">
+            <div key={index} className="rounded-[1.1rem] border border-[rgba(17,24,39,0.08)] bg-white/88 p-4 shadow-[0_10px_24px_rgba(8,26,39,0.06)]">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent-deep)]">
+                {item.day}
+              </p>
               <h3 className="font-semibold text-lg text-primary">
                 {item.day} – {item.title}
               </h3>
-              <p className="text-gray-700">{item.description}</p>
+              <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{item.description}</p>
             </div>
           ))}
+          </div>
         </div>
         
         {/* Booking Form */}
@@ -109,12 +114,12 @@ const PackageDetails = () => {
             <h2 className="text-2xl font-bold text-primary">Gallery</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {gallery.map((item, index) => (
-                <div key={index} className="relative overflow-hidden rounded-[1.3rem] border border-[var(--border)] shadow-lg">
+                <div key={index} className="immersive-card">
                   {item.type === 'video' ? (
                     <video
                       src={item.src}
                       controls
-                      className="w-full rounded-xl object-cover"
+                      className="h-full w-full rounded-xl object-cover"
                     />
                   ) : (
                     <Image
@@ -123,7 +128,7 @@ const PackageDetails = () => {
                       width={1200}
                       height={800}
                       quality={95}
-                      className="w-full rounded-xl object-cover"
+                      className="h-full w-full rounded-xl object-cover"
                       sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     />
                   )}
@@ -135,10 +140,10 @@ const PackageDetails = () => {
 
         {/* Action Buttons */}
         <div className="flex flex-col items-center justify-center gap-4 text-center sm:flex-row">
-          <Link href="/custom-package" className="btn-brand rounded-xl px-6 py-3 text-lg font-semibold transition-transform duration-300 hover:scale-105">
+          <Link href="/custom-package" className="btn-brand rounded-full px-6 py-3 text-lg font-semibold transition-transform duration-300 hover:scale-105">
             Customize This Trip
           </Link>
-          <Link href="/contacts" className="btn-secondary rounded-xl px-6 py-3 text-lg font-semibold transition">
+          <Link href="/contacts" className="btn-secondary rounded-full px-6 py-3 text-lg font-semibold transition">
             Talk To Us First
           </Link>
         </div>

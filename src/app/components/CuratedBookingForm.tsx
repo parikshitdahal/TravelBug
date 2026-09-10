@@ -48,32 +48,32 @@ export default function CuratedBookingForm({ packageTitle, duration }: CuratedBo
   return (
     <form onSubmit={handleSubmit} className="card-shell space-y-6 rounded-[1.6rem] p-6">
       {/* Package context */}
-      <div className="bg-surface-soft rounded-[1.1rem] border border-[var(--border)] p-4">
-        <p className="text-sm text-gray-700">
-          <span className="font-semibold text-primary">Package:</span> {packageTitle}
+      <div className="rounded-[1.2rem] border border-[rgba(17,24,39,0.08)] bg-[var(--surface-soft)] p-4">
+        <p className="text-sm text-[var(--muted)]">
+          <span className="font-semibold text-[var(--text-dark)]">Package:</span> {packageTitle}
         </p>
-        <p className="text-sm text-gray-700">
-          <span className="font-semibold text-primary">Duration:</span> {duration}
+        <p className="text-sm text-[var(--muted)]">
+          <span className="font-semibold text-[var(--text-dark)]">Duration:</span> <span className="text-[var(--accent)]">{duration}</span>
         </p>
       </div>
 
       {/* Name */}
       <div>
-        <label className="block mb-2 font-bold text-primary">Your Name</label>
+        <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">Your Name</label>
         <input
           name="name"
           value={form.name}
           onChange={handleChange}
           type="text"
-          placeholder="Enter your full name"
+          placeholder="Full name"
           required
-          className="input-brand w-full p-3 text-gray-800 font-medium placeholder-gray-500 outline-none"
+          className="input-brand w-full p-3 font-medium outline-none"
         />
       </div>
 
       {/* Email */}
       <div>
-        <label className="block mb-2 font-bold text-primary">Email</label>
+        <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">Email</label>
         <input
           name="email"
           value={form.email}
@@ -81,44 +81,44 @@ export default function CuratedBookingForm({ packageTitle, duration }: CuratedBo
           type="email"
           placeholder="you@example.com"
           required
-          className="input-brand w-full p-3 text-gray-800 font-medium placeholder-gray-500 outline-none"
+          className="input-brand w-full p-3 font-medium outline-none"
         />
       </div>
 
       {/* Phone */}
       <div>
-        <label className="block mb-2 font-bold text-primary">Phone (optional)</label>
+        <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">Phone (optional)</label>
         <input
           name="phone"
           value={form.phone}
           onChange={handleChange}
           type="text"
-          placeholder="+91-XXXXXXXXXX"
-          className="input-brand w-full p-3 text-gray-800 font-medium placeholder-gray-500 outline-none"
+          placeholder="Phone number (optional)"
+          className="input-brand w-full p-3 font-medium outline-none"
         />
       </div>
 
       {/* Message */}
       <div>
-        <label className="block mb-2 font-bold text-primary">Additional Message (optional)</label>
+        <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">Additional Notes (optional)</label>
         <textarea
           name="message"
           value={form.message}
           onChange={handleChange}
           rows={4}
-          placeholder="Any specific requests or questions?"
-          className="input-brand w-full p-3 text-gray-800 font-medium placeholder-gray-500 outline-none"
+          placeholder="Share any preferences or details you would like us to consider"
+          className="input-brand w-full p-3 font-medium outline-none"
         />
       </div>
 
       {/* Status messages */}
       {status === 'success' && (
-        <div className="rounded-xl bg-green-50 border border-green-200 text-green-700 p-3 text-sm">
-          Request sent! We’ll contact you shortly.
+        <div className="rounded-xl border border-[rgba(34,197,94,0.28)] bg-[rgba(34,197,94,0.1)] p-3 text-sm text-[var(--success)]">
+          Your enquiry has been sent. We&apos;ll get in touch shortly.
         </div>
       )}
       {status === 'error' && (
-        <div className="rounded-xl bg-red-50 border border-red-200 text-red-700 p-3 text-sm">
+        <div className="rounded-xl border border-[rgba(255,77,109,0.24)] bg-[rgba(255,77,109,0.1)] p-3 text-sm text-[var(--pink)]">
           {error}
         </div>
       )}
@@ -127,10 +127,10 @@ export default function CuratedBookingForm({ packageTitle, duration }: CuratedBo
       <button
         type="submit"
         disabled={status === 'loading'}
-        className={`btn-brand w-full rounded-xl px-6 py-3 font-semibold transition
+        className={`btn-brand w-full rounded-full px-6 py-3 font-semibold transition
                    ${status === 'loading' ? 'opacity-60 cursor-not-allowed' : ''}`}
       >
-        {status === 'loading' ? 'Sending…' : 'Book This Trip'}
+        {status === 'loading' ? 'Sending…' : 'Send Enquiry'}
       </button>
     </form>
   );

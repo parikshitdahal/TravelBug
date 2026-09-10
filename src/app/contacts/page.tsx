@@ -37,25 +37,29 @@ export default function ContactPage() {
   return (
     <div className="bg-page min-h-screen pt-24 px-4 sm:px-6 pb-12">
       <div className="mx-auto max-w-3xl">
-        <div className="mb-8 text-center">
+        <div className="card-shell mb-10 rounded-[1.8rem] p-8 text-center">
           <p className="eyebrow mb-3">Start A Conversation</p>
-          <h1 className="section-title text-3xl sm:text-4xl">Contact Us</h1>
+          <h1 className="section-title text-3xl sm:text-4xl">Let&apos;s Plan Your Journey</h1>
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[var(--muted)] sm:text-base">
-            Tell us what kind of Sikkim trip you have in mind and we’ll help shape the right route, timing, and stay style for you.
+            Tell us what kind of journey you have in mind and we&apos;ll help shape the right route, timing, and stay style with care and clarity.
           </p>
         </div>
         <div className="card-shell bg-surface rounded-[1.75rem] p-5 sm:p-8">
         <form onSubmit={onSubmit} className="space-y-4">
-          <input className="input-brand w-full p-3" name="name" placeholder="Your Name" value={form.name} onChange={onChange} required />
-          <input className="input-brand w-full p-3" name="email" type="email" placeholder="Email" value={form.email} onChange={onChange} required />
-          <input className="input-brand w-full p-3" name="phone" placeholder="Phone (optional)" value={form.phone} onChange={onChange} />
-          <input className="input-brand w-full p-3" name="subject" placeholder="Subject" value={form.subject} onChange={onChange} />
-          <textarea className="input-brand w-full p-3" name="message" rows={5} placeholder="Your message" value={form.message} onChange={onChange} required />
-          <button disabled={status==='loading'} className="btn-brand w-full rounded-lg px-6 py-3 font-semibold sm:w-auto">
-            {status==='loading' ? 'Sending...' : 'Send Message'}
+          <div className="grid gap-4 sm:grid-cols-2">
+            <input className="input-brand w-full p-3" name="name" placeholder="Full name" value={form.name} onChange={onChange} required />
+            <input className="input-brand w-full p-3" name="email" type="email" placeholder="Email address" value={form.email} onChange={onChange} required />
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <input className="input-brand w-full p-3" name="phone" placeholder="Phone number (optional)" value={form.phone} onChange={onChange} />
+            <input className="input-brand w-full p-3" name="subject" placeholder="Subject or trip brief" value={form.subject} onChange={onChange} />
+          </div>
+          <textarea className="input-brand w-full p-3" name="message" rows={5} placeholder="Tell us about the places, dates, or travel style you have in mind" value={form.message} onChange={onChange} required />
+          <button disabled={status==='loading'} className="btn-brand w-full rounded-full px-6 py-3 font-semibold sm:w-auto">
+            {status==='loading' ? 'Sending...' : 'Send Enquiry'}
           </button>
-          {status==='success' && <p className="text-green-600">Message sent!</p>}
-          {status==='error' && <p className="text-red-600">{error}</p>}
+          {status==='success' && <p className="rounded-xl border border-[rgba(34,197,94,0.28)] bg-[rgba(34,197,94,0.1)] px-4 py-3 text-[var(--success)]">Your enquiry has been sent successfully.</p>}
+          {status==='error' && <p className="rounded-xl border border-[rgba(255,77,109,0.24)] bg-[rgba(255,77,109,0.1)] px-4 py-3 text-[var(--pink)]">{error}</p>}
         </form>
         </div>
       </div>

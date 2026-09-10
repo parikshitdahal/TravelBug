@@ -23,4 +23,20 @@ export const packageGalleries: Record<string, { type: 'image' | 'video'; src: st
     { type: 'image', src: '/destinations/west.jpg' },
     { type: 'video', src: '/destinations/tsomgo.mp4' },
   ],
+  'darjeeling-kalimpong-escape': [
+    { type: 'image', src: '/hero3.jpg' },
+    { type: 'image', src: '/hero5.jpg' },
+    { type: 'image', src: '/destinations/gangtok.jpg' },
+  ],
+  'dooars-forest-tea-trail': [
+    { type: 'image', src: '/hero.jpeg' },
+    { type: 'image', src: '/hero5.jpg' },
+    { type: 'image', src: '/destinations/temi.jpg' },
+  ],
+  'sikkim-darjeeling-kalimpong-circuit': [
+    { type: 'image', src: '/destinations/gtk.jpg' },
+    { type: 'image', src: '/hero3.jpg' },
+    { type: 'image', src: '/hero5.jpg' },
+    { type: 'video', src: '/destinations/tsomgo.mp4' },
+  ],
 }

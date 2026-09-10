@@ -29,10 +29,10 @@ export default function AboutPage() {
           className="relative text-center text-white px-6 max-w-3xl"
         >
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-            Our Story, Values & Identity
+            The Story, Values, and Point of View Behind TravelBug Sikkim
           </h1>
           <p className="text-lg leading-relaxed">
-            At <span className="font-semibold">TravelBug Sikkim</span>, we design journeys that are immersive, meaningful, and leave a positive impact on the people and places we touch.
+            At <span className="font-semibold">TravelBug Sikkim</span>, we design journeys that feel immersive, well-paced, and respectful of the places and communities that make them memorable.
           </p>
         </motion.div>
       </section>
@@ -65,39 +65,39 @@ export default function AboutPage() {
           className="flex flex-col justify-center"
         >
           <p className="eyebrow mb-3">Why We Exist</p>
-          <h2 className="text-2xl font-bold text-primary mb-4">Our Brand Story</h2>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            Born in the heart of Sikkim, TravelBug Sikkim began as a passion project by explorers who believed that travel should go beyond sightseeing. We envisioned journeys that celebrate culture, preserve the environment, and build meaningful connections.
+          <h2 className="text-2xl font-bold text-primary mb-4">Why We Built TravelBug Sikkim</h2>
+          <p className="mb-4 leading-relaxed text-[var(--muted)]">
+            TravelBug Sikkim began with a simple belief: the best journeys should go beyond checklist sightseeing. We wanted to create travel experiences that feel better paced, more regionally grounded, and more attentive to the details that shape a truly memorable trip.
           </p>
-          <p className="text-gray-700 leading-relaxed">
-            Over the years, we’ve grown into a community-driven travel brand that curates authentic experiences for discerning travelers. Every itinerary we create is guided by our love for nature, respect for local traditions, and a desire to craft memories that last a lifetime.
+          <p className="leading-relaxed text-[var(--muted)]">
+            Over time, that approach has grown into a travel brand shaped by local knowledge, respect for cultural context, and a commitment to journeys that feel both polished and personal. Every itinerary is designed to balance beauty, comfort, authenticity, and practicality.
           </p>
         </motion.div>
       </section>
 
       {/* VALUES */}
-      <section className="bg-surface py-16 mb-20">
+      <section className="mb-20 bg-[rgba(255,255,255,0.02)] py-16">
         <div className="max-w-6xl mx-auto px-6 md:px-12">
           <p className="eyebrow mb-3 text-center">What Guides Us</p>
           <h2 className="text-2xl font-bold text-center text-primary mb-12">
-            Our Core Values
+            The Principles That Guide Our Work
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
                 Icon: HeartHandshake,
                 title: 'Community First',
-                text: 'We collaborate with local communities at every step, ensuring they benefit directly from tourism while keeping their heritage alive.'
+                text: 'We work in ways that value local people, local knowledge, and the long-term health of the destinations we operate in.'
               },
               {
                 Icon: Leaf,
                 title: 'Sustainable Travel',
-                text: 'We champion eco-friendly practices to protect Sikkim’s pristine landscapes, minimizing our footprint while maximizing positive impact.'
+                text: 'We believe travel should be thoughtful and low-impact, with choices that respect landscapes, seasons, and carrying capacity.'
               },
               {
                 Icon: Mountain,
                 title: 'Authentic Experiences',
-                text: 'Every journey is designed to immerse you in Sikkim’s culture, cuisine, and traditions, going beyond typical tourist trails.'
+                text: 'We design journeys that feel rooted in place, blending major highlights with the atmosphere, culture, and rhythm that give a region its character.'
               }
             ].map((value, i) => (
               <motion.div
@@ -106,11 +106,11 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 * i }}
-                className="bg-surface-soft rounded-lg border border-[var(--border)] shadow-lg p-6 text-center transition-transform duration-300 hover:scale-105"
+                className="card-shell rounded-[1.4rem] p-6 text-center transition-transform duration-300 hover:scale-105"
               >
                 <value.Icon className="mx-auto mb-4 h-[60px] w-[60px] text-[var(--accent-deep)]" />
                 <h3 className="text-lg font-semibold text-primary mb-2">{value.title}</h3>
-                <p className="text-gray-700 text-sm leading-relaxed">{value.text}</p>
+                <p className="text-sm leading-relaxed text-[var(--muted)]">{value.text}</p>
               </motion.div>
             ))}
           </div>
@@ -127,11 +127,9 @@ export default function AboutPage() {
           className="text-center"
         >
           <p className="eyebrow mb-3">Visual Language</p>
-          <h2 className="text-2xl font-bold text-primary mb-6">Our Brand Identity</h2>
-          <p className="text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8">
-            Our visual identity is inspired by the lush valleys and majestic mountains of Sikkim. 
-            Earthy greens and natural tones symbolize growth and harmony with nature, while our logo embodies a spirit of exploration and balance. 
-            Every detail reflects our mission to offer premium, trustworthy, and transparent travel experiences.
+          <h2 className="text-2xl font-bold text-primary mb-6">The Visual Language Of The Brand</h2>
+          <p className="mb-8 max-w-3xl mx-auto leading-relaxed text-[var(--muted)]">
+            Our visual identity draws from mountain dusk, high-altitude light, and the quiet richness of Himalayan landscapes. Deep blue brings structure and calm, while restrained cyan, sage, and warm metallic tones add clarity, freshness, and a more premium finish.
           </p>
           <Image
             src="/logo.svg"
@@ -146,13 +144,13 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="bg-brand-dark py-16 text-center">
         <h2 className="text-2xl md:text-3xl font-semibold text-white mb-6">
-          Ready to Experience the Journey of a Lifetime?
+          Ready to start planning a more considered Himalayan journey?
         </h2>
         <a
           href="/custom-package"
           className="btn-brand inline-block rounded-full px-6 py-3 font-semibold transition"
         >
-          Build Your Custom Trip
+          Plan A Custom Journey
         </a>
       </section>
     </div>

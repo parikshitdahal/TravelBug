@@ -82,11 +82,11 @@ export default function CustomPackagePage() {
 
   return (
     <div className="bg-page min-h-screen pt-24 px-4 sm:px-6 md:px-20 pb-16">
-      <div className="mb-8 text-center">
+      <div className="card-shell mx-auto mb-10 max-w-4xl rounded-[1.8rem] p-8 text-center">
         <p className="eyebrow mb-3">Made Around You</p>
-        <h1 className="section-title text-3xl md:text-4xl">Customize Your Sikkim Journey</h1>
+        <h1 className="section-title text-3xl md:text-4xl">Plan A Journey Around Your Own Brief</h1>
         <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[var(--muted)] sm:text-base">
-          Pick the places, stay style, dates, and pace you want. We’ll turn that into a practical itinerary you can actually travel.
+          Select the regions, dates, stay style, and pace you have in mind, and we&apos;ll turn that into a practical itinerary designed to travel well.
         </p>
       </div>
       <motion.div
@@ -95,13 +95,13 @@ export default function CustomPackagePage() {
         transition={{ duration: 0.4 }}
         className="card-shell max-w-4xl mx-auto rounded-[1.8rem] p-5 sm:p-8 md:p-12"
       >
-        {status==='success' && <div className="text-green-600 text-center mb-4">Request sent successfully!</div>}
-        {status==='error' && <div className="text-red-600 text-center mb-4">{error}</div>}
+        {status==='success' && <div className="mb-4 rounded-xl border border-[rgba(34,197,94,0.28)] bg-[rgba(34,197,94,0.1)] px-4 py-3 text-center text-[var(--success)]">Your custom enquiry has been sent successfully.</div>}
+        {status==='error' && <div className="mb-4 rounded-xl border border-[rgba(255,77,109,0.24)] bg-[rgba(255,77,109,0.1)] px-4 py-3 text-center text-[var(--pink)]">{error}</div>}
 
         <form onSubmit={onSubmit} className="space-y-8">
           {/* Pick Destinations */}
           <div>
-            <h2 className="text-xl font-semibold text-[var(--accent-deep)] mb-4">Pick Destinations</h2>
+            <h2 className="mb-4 text-xl font-semibold text-[var(--accent)]">Select Your Destinations</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {destinations.map(({ name, img }) => (
                 <motion.div
@@ -110,8 +110,8 @@ export default function CustomPackagePage() {
                   onClick={() => toggleDestination(name)}
                 className={`cursor-pointer rounded-[1.2rem] p-2 text-center font-medium shadow-md transition-all hover:-translate-y-1 hover:shadow-lg ${
                     form.destinations.includes(name)
-                      ? 'bg-brand-dark text-white ring-2 ring-[var(--accent)]'
-                      : 'bg-surface-soft text-primary border border-[var(--border)]'
+                      ? 'bg-[linear-gradient(180deg,rgba(0,136,204,0.44),rgba(11,29,42,0.92))] text-white ring-2 ring-[var(--accent)]'
+                      : 'border border-[rgba(17,24,39,0.08)] bg-white text-[var(--text-dark)]'
                   }`}
                 >
                   <Image
@@ -132,26 +132,26 @@ export default function CustomPackagePage() {
           {/* Days & Stay Type */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block font-medium mb-2">Number of Days</label>
+              <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">Preferred Trip Length</label>
               <input
                 type="number"
                 name="days"
                 value={form.days}
                 onChange={onChange}
                 className="input-brand w-full p-3"
-                placeholder="e.g. 5"
+                placeholder="For example, 5"
                 required
               />
             </div>
             <div>
-              <label className="block font-medium mb-2">Stay Type</label>
+              <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">Preferred Stay Style</label>
               <select
                 name="stayType"
                 value={form.stayType}
                 onChange={onChange}
                 className="input-brand w-full p-3"
               >
-                <option value="">No preference</option>
+                <option value="">No preference yet</option>
                 <option value="Budget">Budget</option>
                 <option value="Standard">Standard</option>
                 <option value="Premium">Premium</option>
@@ -162,7 +162,7 @@ export default function CustomPackagePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block font-medium mb-2">Travel Start Date</label>
+              <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">Travel Start Date</label>
               <input
                 type="date"
                 name="startDate"
@@ -173,7 +173,7 @@ export default function CustomPackagePage() {
               />
             </div>
             <div>
-              <label className="block font-medium mb-2">Travel End Date</label>
+              <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">Travel End Date</label>
               <input
                 type="date"
                 name="endDate"
@@ -187,22 +187,22 @@ export default function CustomPackagePage() {
 
           {/* Additional Message */}
           <div>
-            <label className="block font-medium mb-2">Additional Message</label>
+            <label className="mb-2 block text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">Additional Notes</label>
             <textarea
               name="message"
               value={form.message}
               onChange={onChange}
               className="input-brand w-full p-3"
               rows={4}
-              placeholder="Tell us more about your preferences..."
+              placeholder="Tell us more about the experience, pace, comfort level, or special requests you have in mind"
             />
           </div>
 
           {/* Contact */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <input name="name" value={form.name} onChange={onChange} type="text" placeholder="Your Name" className="input-brand p-3" required />
-            <input name="email" value={form.email} onChange={onChange} type="email" placeholder="Email Address" className="input-brand p-3" required />
-            <input name="phone" value={form.phone} onChange={onChange} type="text" placeholder="Phone Number (optional)" className="input-brand p-3 sm:col-span-2" />
+            <input name="name" value={form.name} onChange={onChange} type="text" placeholder="Full name" className="input-brand p-3" required />
+            <input name="email" value={form.email} onChange={onChange} type="email" placeholder="Email address" className="input-brand p-3" required />
+            <input name="phone" value={form.phone} onChange={onChange} type="text" placeholder="Phone number (optional)" className="input-brand p-3 sm:col-span-2" />
           </div>
 
           <button
@@ -210,7 +210,7 @@ export default function CustomPackagePage() {
             className={`btn-brand w-full rounded-full px-6 py-3 font-semibold transition ${status==='loading' ? 'cursor-not-allowed opacity-50' : ''}`}
             disabled={status==='loading'}
           >
-            {status==='loading' ? 'Sending...' : 'Submit Custom Package'}
+            {status==='loading' ? 'Sending...' : 'Send Custom Enquiry'}
           </button>
         </form>
       </motion.div>
