@@ -33,6 +33,9 @@ export default function Navbar() {
             <p className="text-base font-extrabold tracking-tight text-[var(--text-dark)] sm:text-xl">
               HillHoppers
             </p>
+            <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.34em] text-[var(--accent)] sm:text-[10px]">
+              Sikkim
+            </p>
           </div>
         </Link>
 
