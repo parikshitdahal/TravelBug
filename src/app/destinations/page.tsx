@@ -3,16 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { destinationData } from "@/app/data/destinations";
 
-const taglines: Record<string, string> = {
-  north: "Snow-fed lakes, alpine valleys, and high-altitude grandeur",
-  south: "Tea gardens, monasteries, and a gentler rhythm in the hills",
-  east: "Gangtok energy, mountain lakes, and accessible cultural highlights",
-  west: "Ancient stories, monastery routes, and wide Himalayan views",
-  darjeeling: "Heritage hill-station character with tea, viewpoints, and slow promenades",
-  kalimpong: "Ridgeline calm, monastery culture, and an unhurried mountain pace",
-  dooars: "Forests, tea country, riverside roads, and wildlife-rich foothills",
-}
-
 export default function DestinationPage() {
   return (
     <div className="bg-page min-h-screen">
@@ -40,25 +30,10 @@ export default function DestinationPage() {
                 />
                 <div className="absolute inset-0 immersive-overlay" />
 
-                <div className="absolute inset-0 flex flex-col justify-between p-6 text-white">
-                  <div className="flex items-start justify-between gap-3">
-                    <span className="rounded-full bg-white/88 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--text-dark)]">
-                      Regional Circuit
-                    </span>
-                    <span className="tag-chip">Explore stops</span>
-                  </div>
-
+                <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                   <div className="max-w-md">
-                    <p className="mb-3 text-sm font-medium uppercase tracking-[0.24em] text-[var(--accent)]">
-                      TravelBug Sikkim
-                    </p>
                     <h2 className="text-3xl font-semibold leading-tight">{district.name}</h2>
-                    <p className="mt-3 text-sm leading-6 text-slate-200 sm:text-base">
-                      {taglines[district.district] ?? district.intro}
-                    </p>
-                    <div className="mt-5 inline-flex items-center rounded-full bg-white/14 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm transition group-hover:bg-white/20">
-                      View Region →
-                    </div>
+                    <span className="mt-5 inline-flex rounded-full bg-white px-4 py-2 text-sm font-semibold text-[var(--text-dark)] transition md:translate-y-2 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-visible:translate-y-0 md:group-focus-visible:opacity-100">View region <span className="ml-2" aria-hidden="true">→</span></span>
                   </div>
                 </div>
               </div>

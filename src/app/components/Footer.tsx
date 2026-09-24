@@ -10,10 +10,9 @@ export default function Footer() {
         {/* Logo & Intro */}
         <div className="flex flex-col items-start">
           <div className="flex items-center space-x-2 mb-3">
-            <Image src="/logo.svg" alt="TravelBug Sikkim Logo" width={40} height={40} className="rounded-full shadow-[0_14px_28px_rgba(0,136,204,0.14)]" />
+            <Image src="/logo.svg" alt="HillHoppers Logo" width={40} height={40} className="rounded-full shadow-[0_14px_28px_rgba(0,136,204,0.14)]" />
             <div>
-              <p className="text-2xl font-bold text-[var(--text-dark)]">TravelBug</p>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--accent)]">Sikkim</p>
+              <p className="text-2xl font-bold text-[var(--text-dark)]">HillHoppers</p>
             </div>
           </div>
           <p className="max-w-xs text-sm leading-6 text-[var(--muted)]">
@@ -65,7 +64,7 @@ export default function Footer() {
       {/* Copyright */}
       <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-[rgba(17,24,39,0.08)] px-6 pt-6 text-xs text-[var(--muted)] sm:flex-row sm:items-center sm:justify-between">
         <p>Crafted for mountain journeys, local stories, and mindful travel.</p>
-        © {new Date().getFullYear()} TravelBug Sikkim. All rights reserved.
+        © {new Date().getFullYear()} HillHoppers. All rights reserved.
       </div>
     </footer>
   )

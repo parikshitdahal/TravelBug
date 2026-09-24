@@ -8,7 +8,7 @@ import 'react-day-picker/dist/style.css';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'TravelBug Sikkim | Explore Sikkim',
+  title: 'HillHoppers | Explore Sikkim',
   description: 'Best tour packages and travel experiences in Sikkim.',
 }
 

@@ -23,7 +23,7 @@ export default function Navbar() {
         <Link href="/" className="group flex items-center space-x-3">
           <Image
             src="/logo.svg"
-            alt="TravelBug Sikkim Logo"
+            alt="HillHoppers Logo"
             width={44}
             height={44}
             className="rounded-full object-cover shadow-[0_14px_28px_rgba(201,162,79,0.14)] transition duration-300 group-hover:scale-105"
@@ -31,10 +31,7 @@ export default function Navbar() {
           />
           <div className="leading-none">
             <p className="text-base font-extrabold tracking-tight text-[var(--text-dark)] sm:text-xl">
-              TravelBug
-            </p>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-[var(--accent)] sm:text-xs">
-              Sikkim
+              HillHoppers
             </p>
           </div>
         </Link>

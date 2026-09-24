@@ -29,10 +29,10 @@ export default function AboutPage() {
           className="relative text-center text-white px-6 max-w-3xl"
         >
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-            The Story, Values, and Point of View Behind TravelBug Sikkim
+            The Story, Values, and Point of View Behind HillHoppers
           </h1>
           <p className="text-lg leading-relaxed">
-            At <span className="font-semibold">TravelBug Sikkim</span>, we design journeys that feel immersive, well-paced, and respectful of the places and communities that make them memorable.
+            At <span className="font-semibold">HillHoppers</span>, we design journeys that feel immersive, well-paced, and respectful of the places and communities that make them memorable.
           </p>
         </motion.div>
       </section>
@@ -65,9 +65,9 @@ export default function AboutPage() {
           className="flex flex-col justify-center"
         >
           <p className="eyebrow mb-3">Why We Exist</p>
-          <h2 className="text-2xl font-bold text-primary mb-4">Why We Built TravelBug Sikkim</h2>
+          <h2 className="text-2xl font-bold text-primary mb-4">Why We Built HillHoppers</h2>
           <p className="mb-4 leading-relaxed text-[var(--muted)]">
-            TravelBug Sikkim began with a simple belief: the best journeys should go beyond checklist sightseeing. We wanted to create travel experiences that feel better paced, more regionally grounded, and more attentive to the details that shape a truly memorable trip.
+            HillHoppers began with a simple belief: the best journeys should go beyond checklist sightseeing. We wanted to create travel experiences that feel better paced, more regionally grounded, and more attentive to the details that shape a truly memorable trip.
           </p>
           <p className="leading-relaxed text-[var(--muted)]">
             Over time, that approach has grown into a travel brand shaped by local knowledge, respect for cultural context, and a commitment to journeys that feel both polished and personal. Every itinerary is designed to balance beauty, comfort, authenticity, and practicality.

@@ -34,27 +34,10 @@ export default function PackagesPage() {
           >
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(201,162,79,0.24),transparent_24%),radial-gradient(circle_at_80%_20%,rgba(111,156,134,0.18),transparent_22%),linear-gradient(180deg,#0a1625_0%,#173952_100%)] transition duration-500 group-hover:scale-105" />
             <div className="absolute inset-0 immersive-overlay" />
-            <div className="relative flex h-full flex-col justify-between p-6 text-white">
-              <div className="flex items-start justify-between gap-4">
-                <span className="rounded-full bg-white/88 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--text-dark)]">
-                  Tailor-Made
-                </span>
-                <span className="rounded-full border border-[rgba(201,162,79,0.2)] bg-[rgba(255,248,231,0.12)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-slate-100">
-                  Your pace
-                </span>
-              </div>
-
+            <div className="relative flex h-full items-end p-6 text-white">
               <div>
-                <p className="mb-3 text-sm font-medium uppercase tracking-[0.26em] text-[var(--accent)]">
-                  TravelBug Planning Studio
-                </p>
                 <h3 className="max-w-xs text-3xl font-semibold leading-tight">Create a journey shaped around your pace, priorities, and travel style.</h3>
-                <p className="mt-4 max-w-sm text-sm leading-6 text-slate-200">
-                  Tell us the regions you have in mind, your ideal trip length, and your preferred stay style, and we&apos;ll shape a route that feels considered from the very first conversation.
-                </p>
-                <div className="mt-6 inline-flex items-center rounded-full border border-[rgba(201,162,79,0.2)] bg-[rgba(255,248,231,0.12)] px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm transition group-hover:bg-[rgba(255,248,231,0.18)]">
-                  Begin Planning →
-                </div>
+                <span className="mt-6 inline-flex rounded-full bg-white px-4 py-2 text-sm font-semibold text-[var(--text-dark)] transition md:translate-y-2 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-visible:translate-y-0 md:group-focus-visible:opacity-100">Begin planning <span className="ml-2" aria-hidden="true">→</span></span>
               </div>
             </div>
           </Link>

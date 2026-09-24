@@ -8,13 +8,9 @@ import Link from 'next/link'
 
 function DestinationCard({
   name,
-  description,
-  tags,
   media,
 }: {
   name: string
-  description: string
-  tags: string[]
   media: Array<{ type: 'image' | 'video'; src: string }>
 }) {
   const [mediaIndex, setMediaIndex] = useState(0)
@@ -56,29 +52,9 @@ function DestinationCard({
         )}
         <div className="absolute inset-0 immersive-overlay" />
 
-        <div className="absolute inset-0 flex flex-col justify-between p-5 text-white">
-          <div className="flex items-start justify-between gap-3">
-            <span className="rounded-full bg-white/88 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--text-dark)]">
-              Highlight
-            </span>
-            {media.length > 1 ? (
-              <span className="tag-chip">Gallery View</span>
-            ) : null}
-          </div>
-
-          <div className="space-y-4">
-            <div>
-              <h2 className="text-2xl font-semibold leading-tight">{name}</h2>
-              <p className="mt-3 text-sm leading-6 text-slate-200">{description}</p>
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              {tags.map((tag, index) => (
-                <span key={index} className="tag-chip">
-                  {tag}
-                </span>
-              ))}
-            </div>
+        <div className="absolute inset-x-0 bottom-0 p-5 text-white">
+          <div>
+            <h2 className="text-2xl font-semibold leading-tight">{name}</h2>
           </div>
         </div>
       </div>
@@ -169,8 +145,6 @@ export default function DistrictPage() {
               <DestinationCard
                 key={`${dest.name}-${index}`}
                 name={dest.name}
-                description={dest.description}
-                tags={dest.tags}
                 media={Array.isArray(dest.media) ? dest.media : [dest.media]}
               />
             ))}

@@ -116,10 +116,8 @@ function HomeDestinationCard({
 }: {
   destination: {
     name: string
-    description: string
     media: { type: 'image' | 'video'; src: string }
     district: string
-    districtName: string
   }
 }) {
   return (
@@ -146,27 +144,14 @@ function HomeDestinationCard({
           />
         )}
         <div className="absolute inset-0 immersive-overlay" />
-        <div className="absolute inset-0 flex flex-col justify-between p-5 text-white">
-          <div className="flex items-start justify-between gap-3">
-            <span className="rounded-full bg-white/88 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--text-dark)]">
-              Loved Place
-            </span>
-            <span className="tag-chip">{destination.districtName}</span>
-          </div>
-
-          <div>
+          <div className="absolute inset-x-0 bottom-0 p-5 text-white">
             <h3 className="text-2xl font-semibold leading-tight">{destination.name}</h3>
-            <p className="mt-3 text-sm leading-6 text-slate-200">{destination.description}</p>
-            <Link
-              href={`/destinations/${destination.district}`}
-              className="mt-5 inline-flex items-center rounded-full bg-white/14 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
-            >
-              View Region →
+            <Link href={`/destinations/${destination.district}`} className="mt-5 inline-flex rounded-full bg-white px-4 py-2 text-sm font-semibold text-[var(--text-dark)] transition md:translate-y-2 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 focus-visible:translate-y-0 focus-visible:opacity-100">
+              Explore <span className="ml-2" aria-hidden="true">→</span>
             </Link>
           </div>
         </div>
       </div>
-    </div>
   )
 }
 
@@ -183,7 +168,7 @@ export default function HomePage() {
   // Extract top destination from each district (or first 3 total if needed)
   const topDestinations = destinationData.flatMap(d =>
     d.destinations.length
-      ? [{ ...d.destinations[0], district: d.district, districtName: d.name }]
+      ? [{ ...d.destinations[0], district: d.district }]
       : []
   )
 
